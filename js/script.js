@@ -393,14 +393,14 @@ document.addEventListener('DOMContentLoaded', function() {
       // Desbloquear el scroll completamente
       unlockScrollCompletely();
       
-      // Hacer scroll hasta el final de la sección
+      // Hacer scroll hasta el contenedor de contacto
       setTimeout(() => {
-        window.scrollTo({
-          top: document.body.scrollHeight,
-          behavior: 'smooth'
-        });
-      }, 100);
-    }, 1000); // Esperar a que termine la animación
+        const contactoContainer = document.getElementById('contacto');
+        if (contactoContainer) {
+          contactoContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 10);
+    }, 100); // Esperar a que termine la animación
   });
 
   // Inicialización
