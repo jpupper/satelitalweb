@@ -1,0 +1,2 @@
+[03-Mar-2025 06:38:35 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'c1700065_ghm'@'localhost' (using password: YES) in /home/arsatelitalghm/public_html/dbconfig.php on line 19
+[03-Mar-2025 06:40:57 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'c1700065_ghm'@'localhost' (using password: YES) in /home/arsatelitalghm/public_html/dbconfig.php on line 19

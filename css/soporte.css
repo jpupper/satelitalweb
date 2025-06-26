@@ -1,0 +1,518 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Eliminar franjas blancas */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  overflow-x: hidden;
+}
+
+#geo {
+  color: #b4cd00;
+}
+
+/* HERO */
+.hero-soporte {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../assets/soporte/principal.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10rem;
+  position: relative;
+}
+
+/* Simplificando el CSS para el hero */
+.hero-soporte h1 {
+  color: white;
+  font-family: "Roboto", sans-serif;
+  font-size: 76px;
+  font-weight: normal;
+  text-align: left;
+
+  line-height: 1.1;
+  padding: 0;
+}
+
+/* Cada línea es un bloque separado en desktop */
+.hero-soporte .line {
+  display: block;
+}
+
+/* INTRO DE SERVICIOS */
+.services-intro {
+  background-color: black;
+  padding: 2rem 3rem;
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-intro p {
+  color: white;
+  padding-bottom: 70px;
+  padding-top: 70px;
+  font-family: "Roboto", sans-serif;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.1;
+  max-width: 100vw;
+}
+
+.services-intro .highlight {
+  color: #b4cd00;
+}
+
+/* GRID PRINCIPAL */
+.services-grid {
+  display: grid;
+  padding-bottom: 70px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100vw;
+  max-width: 1200px;
+  padding: 2.5rem 3rem;
+  padding-bottom: 100px;
+  padding-top: 0;
+  margin: 0 auto;
+  background-color: black;
+}
+
+/* Base de tarjetas */
+.service-card {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  color: white;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* Gradientes de fondo */
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("https://hebbkx1anhila5yf.public.blob.vercel-storage.com/fondo3-KNDrXSKOPfj5gMxQKKCj1j8jX9qDJl.png");
+  background-size: 300% 300%;
+  z-index: -1;
+  opacity: 1;
+}
+
+/* Posiciones de gradiente para cada tarjeta */
+.card-large[data-card="support"]::before {
+  background-position: 20% 20%;
+  background-size: 110% 110%;
+}
+
+.card-large[data-card="mountain"]::before {
+  background-position: 100% 0%;
+}
+
+.card-medium[data-card="connectivity"]::before {
+  background-position: 30% 100%;
+}
+
+.card-medium[data-card="solutions"]::before {
+  background-position: 70% 100%;
+}
+
+.card-medium[data-card="coverage"]::before {
+  background-position: 100% 200%;
+}
+
+.card-full[data-card="contact"]::before {
+  background-position: 90% 0%;
+}
+
+/* TAMAÑOS DE TARJETAS */
+.card-large {
+  grid-column: span 1;
+  aspect-ratio: 1.8;
+  min-height: 150px;
+}
+
+.medium-cards-row {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card-medium {
+  aspect-ratio: 0.88;
+  min-height: 230px;
+}
+
+.card-full {
+  grid-column: span 2;
+  min-height: auto;
+}
+
+/* CONTENIDO DE TARJETAS */
+.card-content {
+  padding: 1.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+/* Contenedor de iconos */
+.icono-wrapper {
+  margin-bottom: 1rem;
+}
+
+/* Ajustar la posición inicial del icono */
+.card-icono {
+  margin-top: 10%;
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+  transition: margin-top 0.3s ease;
+}
+
+/* Cuando la descripción es visible, reducir el margin-top del icono */
+.card-text .card-description.visible ~ .icono-wrapper .card-icono,
+.service-card:has(.card-description.visible) .card-icono {
+  margin-top: 5%;
+}
+
+/* Tamaño de iconos */
+/* .card-icono {
+  margin-top: 10%;
+  width: 75px;
+  height: 75px;
+  object-fit: contain;
+} */
+
+/* Contenedor de texto */
+.card-text {
+  margin-bottom: 1rem;
+}
+
+/* Títulos de cards */
+.service-card h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+
+  line-height: 1;
+  color: white;
+ 
+}
+
+/* Descripción de cards */
+.card-description {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: "Roboto", sans-serif;
+  font-size: 1.6rem;
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, height 0.3s ease, transform 0.3s ease;
+}
+
+.card-description.visible {
+  opacity: 1;
+  height: auto;
+  margin-top: 0.5rem;
+  transform: translateY(0);
+}
+
+/* Botón plus */
+.plus-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: transparent;
+  color: white;
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  z-index: 2;
+}
+
+.plus-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Símbolo menos */
+.minus-symbol {
+  display: inline-block;
+  width: 12px;
+  height: 2px;
+  background-color: white;
+  position: relative;
+  top: -1px;
+}
+
+/* Efectos hover */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* CARD DE CONTACTO */
+.card-full .card-content {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  min-height: auto;
+}
+
+.contact-iconos {
+  display: flex;
+  gap: 4rem;
+  margin: 0;
+  padding: 1rem;
+}
+
+.contact-icono {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  margin: 0;
+  display: block;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.contact-icono:hover {
+  transform: scale(1.1);
+}
+
+.contact-text {
+  margin: 0;
+  padding: 0;
+}
+
+.contact-text h3 {
+  margin: 0;
+  padding: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .hero-soporte {
+    padding-left: 5rem;
+  }
+
+  .hero-soporte h1 {
+    font-size: 60px;
+  }
+
+  .services-intro,
+  .services-grid {
+    padding: 2rem;
+  }
+
+  .services-intro p {
+    font-size: 1.8rem;
+  }
+
+  .card-icono {
+    width: 65px;
+    height: 65px;
+  }
+
+  .service-card h3 {
+    font-size: 1.8rem;
+  }
+
+  .card-description {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .services-intro p {
+    font-size: 1.5rem;
+  }
+
+  .card-large,
+  .card-medium {
+    min-height: 200px;
+  }
+
+  .card-icono {
+    width: 60px;
+    height: 60px;
+  }
+
+  .service-card h3 {
+    font-size: 1.6rem;
+  }
+
+  .card-description {
+    font-size: 1.2rem;
+  }
+}
+
+/* En móvil, cambiar a inline y agregar color verde al primer span */
+@media (max-width: 768px) {
+  .hero-soporte {
+    padding-left: 2rem;
+  }
+
+  .hero-soporte h1 {
+    font-size: 48px;
+  }
+
+  .hero-soporte .line {
+    display: inline;
+  }
+
+  .hero-soporte .line:first-child {
+    color: #b4cd00;
+  }
+
+  .hero-soporte .line + .line::before {
+    content: " ";
+  }
+
+  .services-intro p {
+    font-size: 1.3rem;
+  }
+
+  .card-content {
+    padding: 1.5rem;
+  }
+
+  .card-icono {
+    width: 50px;
+    height: 50px;
+  }
+
+  .service-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .card-description {
+    font-size: 1rem;
+  }
+
+  .plus-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+  }
+
+  .card-full .card-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .contact-iconos {
+    justify-content: center;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+
+  .medium-cards-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-soporte {
+    padding-left: 1rem;
+  }
+
+  .hero-soporte h1 {
+    font-size: 50px;
+    padding-right: 50px;
+    font-weight: 500;
+  }
+
+  .services-intro p {
+    font-size: 1.1rem;
+  }
+
+  .card-content {
+    padding: 1rem;
+  }
+
+  .card-icono {
+    width: 40px;
+    height: 40px;
+  }
+
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card-description {
+    font-size: 16px;
+  }
+  .card-medium {
+    aspect-ratio: 1.5;
+    height: 240px;
+  }
+
+  .plus-btn {
+    width: 25px;
+    height: 25px;
+    font-size: 1.25rem;
+  }
+}
+
+.clientes {
+  background-color: white;
+}
+
+

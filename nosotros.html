@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GHM SATELITAL</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/nosotros.css" />
+    <link rel="stylesheet" href="css/clientes.css" />
+    <link rel="stylesheet" href="css/videonos.css" />
+    <link rel="stylesheet" href="css/galeria.css" />
+    <link rel="stylesheet" href="css/rse.css" />
+    <link rel="stylesheet" href="css/hamburguesa.css" />
+    <script>
+      // Prevenir FOUC
+      document.documentElement.classList.add('no-fouc');
+      window.addEventListener('load', function() {
+        document.documentElement.classList.remove('no-fouc');
+        document.documentElement.classList.add('fouc-ready');
+      });
+    </script>
+  </head>
+  <body>
+   <!-- Add this new top navbar right after the opening <body> tag -->
+    <div class="top-navbar">
+      <div class="container">
+        <div class="right-links">
+          <a href="#contacto" class="top-link">Contacto <img src="assets/nav/contacto.svg" alt="Email" class="top-icon"></a>
+          <a href="#" class="top-link">Clientes | Login <img src="assets/nav/usuario.svg" alt="User" class="top-icon"></a>
+          <a href="index.html" class="top-link">ESP</a><p>|</p>
+          <a href="en/index.html" class="top-link">ENG</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Update the nav element to include the mobile menu button and close button -->
+    <nav id="main-nav">
+      <div class="nav-links">
+        <a href="nosotros.html" id="geo" >Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="geoespacial.html">Geoespacial</a>
+        <a href="soporte.html">Soporte Técnico</a>
+      </div>
+      <a href="index.html"><img src="assets/nav/logoghm.png" alt="Logo" class="logo" /></a>
+      <button class="mobile-menu-button" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+    
+    <!-- Add the mobile menu overlay -->
+    <div class="mobile-menu-overlay">
+      <div class="mobile-menu-header">
+        <img src="assets/nav/logoghm.png" alt="Logo" class="mobile-logo" />
+        <button class="mobile-menu-close" aria-label="Close menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <div class="mobile-menu-links">
+        <a href="nosotros.html">Nosotros</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="geoespacial.html">Geoespacial</a>
+        <a href="soporte.html">Soporte Técnico</a>
+      </div>
+      <div class="mobile-social-links">
+        <a href="https://www.youtube.com/@GHMSATELITAL/shorts" class="social-icon">
+          <img src="assets/redes/youtube.png" alt="YouTube">
+        </a>
+        <a href="https://ar.linkedin.com/company/ghm-satelital?trk=public_post_feed-actor-name
+  " class="social-icon">
+          <img src="assets/redes/linkedin.png" alt="LinkedIn">
+        </a>
+        <a href="https://www.instagram.com/ghmsatelital/" class="social-icon">
+          <img src="assets/redes/instagram.png" alt="Instagram">
+        </a>
+      </div>
+    </div>
+
+    <!-- Modificar el h1 en el hero-nosotros para usar spans con clase highlight -->
+<div class="hero-nosotros">
+  <h1><span class="highlight">Conectividad en altura,</span><br> expertos en montaña</h1>
+</div>
+  <div class="cordillera"> 
+     <div class="cordillera-about-card">
+    <h1 class="cordillera-about-title">Desde la Cordillera, <br> conectando lo inalcanzable</h1>
+    <p class="cordillera-about-description">
+        Nacidos en Barreal, Calingasta, conocemos la vida en la cordillera, donde los 
+        desafíos superan los 5.000 metros. Esta experiencia nos impulsa a brindar 
+        soluciones rápidas y eficientes, adaptadas a terrenos extremos. Con sedes 
+        en San Juan Capital, Calingasta e Iglesia, llegamos a los lugares más 
+        remotos de Argentina y la región, ofreciendo conectividad, monitoreo y 
+        tecnología para minería, energía e industria.
+    </p>
+</div>
+</div>
+
+
+
+<!-- Nueva sección RSE -->
+<div class="rse-section">
+  <h1 class="rse-title">RSE</h1>
+  <h2 class="rse-subtitle">Nuestros proyectos con la comunidad</h2>
+  
+  <div class="rse-carousel-wrapper">
+    <div class="rse-carousel-button rse-carousel-button-prev">❮</div>
+    <div class="rse-carousel-container">
+      <div class="rse-carousel-track">
+        <!-- Las tarjetas de proyectos RSE se generarán con JavaScript -->
+      </div>
+    </div>
+    <div class="rse-carousel-button rse-carousel-button-next">❯</div>
+  </div>
+</div>
+<div class="relevamientos-banner">
+  <p>Realizamos <strong>relevamientos de terrenos</strong>, procesando datos para generar una base de información estratégica que ingenieros y especialistas puedan utilizar en sus análisis y en la toma de decisiones clave en cada fase del proyecto.</p>
+</div>
+<div class="video-section">
+  <div class="video-grid">
+      <!-- Los contenedores de video se generarán con JavaScript -->
+  </div>
+  <button class="video-nav-button video-prev-button" style="display: none;">❮</button>
+  <button class="video-nav-button video-next-button">❯</button>
+</div>
+
+<div class="fullscreen-video">
+  <button class="close-button">×</button>
+  <iframe frameborder="0" allowfullscreen allow="autoplay"></iframe>
+</div>
+
+
+<div class="fondo">
+  <div class="news-section">
+    <h1 class="news-title">Actualidad</h1>
+    
+    <div class="news-carousel-wrapper">
+      <div class="news-carousel-button news-carousel-button-prev">❮</div>
+      <div class="news-carousel-container">
+          <div class="news-carousel-track">
+            <!-- Elemento 1 -->
+            <div class="news-card">
+                <div class="image-wrapper">
+                    <img src="./assets/galeria/mineria.png" alt="Persona con cabra" class="news-card-image">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-category">▸ RSE</div>
+                    <h3 class="news-card-title">Mineria<span class="news-card-title-highlight"></span></h3>
+                    <p class="news-card-description">La actividad minera en sigue en expansión con nuevos proyectos en exploración y producción. Ghm, en conjunto con el gobierno provincial, buscan impulsar inversiones y empleo local, priorizando el desarrollo sostenible. Comunidades cercanas siguen de cerca el impacto ambiental y económico de la industria.
+                    <div class="news-card-date">Publicado: 25/02/2025</div>
+                    <a href="#" class="news-button">Ver noticia &gt;</a>
+                </div>
+            </div>
+            
+            <!-- Elemento 2 -->
+            <div class="news-card">
+                <div class="image-wrapper">
+                    <img src="./assets/galeria/alfalfa.png" alt="Vehículo todoterreno" class="news-card-image">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-category">▸ SOSTENIBILIDAD</div>
+                    <h3 class="news-card-title">Campo de<span class="news-card-title-highlight"> Alfalfa</span></h3>
+                    <p class="news-card-description">En nuestra empresa, sostenemos un compromiso firme con la sustentabilidad y el cuidado del medio ambiente. Contamos con tres hectáreas principalmente dedicadas al cultivo de alfalfa, además de cultivar especies como orégano y tomillo. </p> 
+                    <p class="news-card-description">Aprovechamos la diversidad natural de nuestros terrenos para optimizar la producción agrícola, promoviendo un equilibrio sostenible que respete y preserve los ecosistemas locales.</p>
+                    <div class="news-card-date">Publicado: 18/02/2025</div>
+                    <a href="#" class="news-button">Ver noticia &gt;</a>
+                </div>
+            </div>
+                   <!-- Elemento 4 -->
+                   <div class="news-card">
+                    <div class="image-wrapper">
+                        <img src="./assets/galeria/3.png" alt="Producto" class="news-card-image">
+                    </div>
+                    <div class="news-card-content">
+                        <div class="news-card-category">▸ PRODUCTOS</div>
+                        <h3 class="news-card-title">Quesos <span class="news-card-title-highlight">Yla</span></h3>
+                        <p class="news-card-description">Ghm Satelital realiza donaciones periódicas de su producción de alfalfa para la alimentación del ganado caprino, contribuyendo al desarrollo de la industria caprina en la región. Esta iniciativa no solo apoya a los productores locales, sino que también impulsa el crecimiento de empresas como Quesos Ylla, fortaleciendo así la economía del departamento.
+                        </p>
+                        <div class="news-card-date">Publicado: 05/02/2025</div>
+                        <a href="#" class="news-button">Ver noticia &gt;</a>
+                    </div>
+                </div>
+            <!-- Elemento 3 -->
+            <div class="news-card">
+                <div class="image-wrapper">
+                    <img src="./assets/galeria/agua.png" alt="Producto" class="news-card-image">
+                </div>
+                <div class="news-card-content">
+                    <div class="news-card-category">▸ SERVICIOS</div>
+                    <h3 class="news-card-title">Laguna <span class="news-card-title-highlight">blanca</span></h3>
+                    <p class="news-card-description">Con el respaldo del gobierno provincial, ghm Satelital ha proyectado un innovador parador en Laguna Blanca, ubicado en la base del Mercedario, en colaboración con la Asociación Ciudad Andina.
+                      
+                      </p>
+                    <div class="news-card-date">Publicado: 10/02/2025</div>
+                    <a href="#" class="news-button">Ver noticia &gt;</a>
+                </div>
+            </div>
+            
+     
+            
+      
+        </div>
+      </div>
+        
+        <div class="news-carousel-button news-carousel-button-next">❯</div>
+    </div>
+  </div>
+  
+  </div>
+  <section class="clientes-section">
+    <h1>Nuestros Clientes</h1>
+    
+    <!-- Contenedor para vista desktop -->
+    <div class="logos-container desktop-logos">
+      <!-- Columna 1 -->
+      <div class="logo-column">
+          <div class="logo-item">
+              <img src="assets/logos/energy.png" alt="Glencore Pachón" class="client-logo" >
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/teck.png" alt="Teck" class="client-logo" id="teck">
+          </div>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="logo-column">
+          <div class="logo-item">
+              <img src="assets/logos/solfrut.png" alt="SolFrut" class="client-logo">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/ypf.png" alt="YPF Luz" class="client-logo">
+          </div>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="logo-column">
+          <div class="logo-item">
+              <img src="assets/logos/fortescue.png" alt="Fortescue" class="client-logo">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/mcewen.png" alt="McEwen Copper" class="client-logo">
+          </div>
+      </div>
+
+      <!-- Columna 4 -->
+      <div class="logo-column">
+        <div class="logo-item">
+          <img src="assets/logos/minasargentinas.png" alt="minas" class="client-logo" id="minas">
+        </div>
+        <div class="logo-item">
+          <img src="assets/logos/banco.png" alt="Banco San Juan" class="client-logo" id="banco">
+        </div>
+      </div>
+
+      <!-- Columna 5 -->
+      <div class="logo-column">
+          <div class="logo-item">
+              <img src="assets/logos/barrick.png" alt="Barrick" class="client-logo">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/glenore.png" alt="360 glencore" class="client-logo" id="glencore">
+          </div>
+      </div>
+
+      <!-- Columna 6 -->
+      <div class="logo-column">
+          <!-- Espacio para un segundo logo si se necesita -->
+      </div>
+    </div>
+    
+    <!-- Contenedor para vista móvil -->
+    <div class="logos-container mobile-logos">
+      <!-- Columna 1 -->
+      <div class="logo-column">
+          <div class="logo-item">
+              <img src="assets/logos/energy.png" alt="Glencore Pachón" class="client-logo">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/teck.png" alt="Teck" class="client-logo" id="teck">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/minasargentinas.png" alt="minas" class="client-logo" id="minas">
+          </div>
+      </div>
+
+      <!-- Columna 2 -->
+      <div class="logo-column">
+          <div class="logo-item">
+              <img src="assets/logos/solfrut.png" alt="SolFrut" class="client-logo">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/ypf.png" alt="YPF Luz" class="client-logo">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/barrick.png" alt="Barrick" class="client-logo">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/glenore.png" alt="360 glencore" class="client-logo" id="glencore">
+          </div>
+      </div>
+
+      <!-- Columna 3 -->
+      <div class="logo-column">
+          <div class="logo-item">
+              <img src="assets/logos/fortescue.png" alt="Fortescue" class="client-logo">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/mcewen.png" alt="McEwen Copper" class="client-logo">
+          </div>
+          <div class="logo-item">
+              <img src="assets/logos/banco.png" alt="Banco San Juan" class="client-logo" id="banco">
+          </div>
+      </div>
+    </div>
+</section>
+  
+<div id="contacto" class="contact-container">
+  <h2 class="contact-title">Contacto</h2>
+  <div class="contact-grid">
+    <div class="contact-column">
+      <h3>Argentina</h3>
+      <p>Av. Libertador 2349 5º "A",<br>CABA, Buenos Aires</p>
+    </div>
+    <div class="contact-column">
+      <h3>San Juan</h3>
+      <p>Esteban Echeverría 772 (sur),<br>Capital</p>
+      <p>Huarpes 1226 (oeste),<br>Barreal, Calingasta</p>
+      <p>Calle Central y Calle 2,<br>Estancia Guañizuil, Iglesia</p>
+    </div>
+    <div class="contact-column">
+      <h3>Chile</h3>
+      <p>Av. Pacífico 5103, Torre 1 / Dpto. 63<br>La Serena, Coquimbo</p>
+    </div>
+    <div class="contact-column">
+      <h3>Información</h3>
+      <p> <a href="mailto:contacto@ghmsatelital.ar">contacto@ghmsatelital.ar</a><br>
+      <a href="tel:+5492644558684">+54 9 2644558684</a></p>
+      <p>Trabaja con Nosotros:<br>
+      <a href="mailto:info@ghmsatelital.ar">info@ghmsatelital.ar</a></p>
+    </div>
+  </div>
+</div>
+ 
+<div class="footer-container">
+<div class="footer-logo">
+  <img src="assets/nav/logoghm.png" alt="GHM Satelital">
+</div>
+
+<div class="footer-content">
+  <!-- Columna 1 -->
+  <div class="footer-column">
+    <a href="#" class="footer-link">Conectividad</a>
+    <a href="#" class="footer-sublink">Monitoreo</a>
+    <a href="#" class="footer-sublink">Gestion IT</a>
+   
+  </div>
+
+  <!-- Columna 2 -->
+  <div class="footer-column">
+    <a href="#" class="footer-link">Misión</a>
+    <a href="#" class="footer-link">Visión</a>
+    <a href="#" class="footer-link">Valores</a>
+    <a href="#" class="footer-link">Actualidad</a>
+  </div>
+
+  <!-- Columna 3 -->
+  <div class="footer-column">
+    <a href="#" class="footer-link">Fotogrametría</a>
+    <a href="#" class="footer-link">Termografía</a>
+    <a href="#" class="footer-link">Magnetometría</a>
+    <a href="#" class="footer-link">Batimetría</a>
+    <a href="#" class="footer-link">LiDAR</a>
+    <a href="#" class="footer-link">Control de Activos</a>
+    <a href="#" class="footer-link">Procesamiento de Datos</a>
+  </div>
+
+  <!-- Columna 4 -->
+  <div class="footer-column">
+    <a href="#" class="footer-link">Soporte 24/7</a>
+    <a href="#" class="footer-link">ConectividadEstable</a>
+    <a href="#" class="footer-link">Soluciones Efectivas</a>
+    <a href="#" class="footer-link">Cobertura Remota</a>
+    <a href="#" class="footer-link">Expertos en Alta Montaña</a>
+  </div>
+
+  <div class="footer-column">
+    <a href="#" class="footer-link">Trabajá con nosotros</a>
+    <a href="#" class="footer-link">Clientes</a>
+  </div>
+</div>
+
+<!-- Social links moved outside footer-content to be visible on mobile -->
+<div class="social-links">
+  <a href="https://www.youtube.com/@GHMSATELITAL/shorts" class="social-link">
+    <img src="assets/redes/youtube.png" alt="YouTube">
+  </a>
+  <a href="https://ar.linkedin.com/company/ghm-satelital?trk=public_post_feed-actor-name" class="social-link">
+    <img src="assets/redes/linkedin.png" alt="LinkedIn">
+  </a>
+  <a href="https://www.instagram.com/ghmsatelital/" class="social-link">
+    <img src="assets/redes/instagram.png" alt="Instagram">
+  </a>
+</div>
+</div>
+    
+    <div class="copyright-bar">
+      ghm satelital © 2025 / Todos los derechos reservados
+    </div>
+  
+   
+           
+     
+      <!-- Scripts -->
+      <script src="js/video.js"></script>
+      <script src="js/nosotros.js"></script>
+      <script src="js/galeria.js"></script>
+      <script src="js/rse.js"></script>
+      <script src="js/nav.js"></script>
+      <script src="js/mainnav.js"></script>
+  
+      <div class="news-modal">
+        <div class="news-modal-content">
+          <button class="news-modal-close">×</button>
+          <div class="news-modal-category"></div>
+          <h2 class="news-modal-title"></h2>
+          <div class="news-modal-text-container">
+            <p class="news-modal-text news-modal-text-left"></p>
+            <p class="news-modal-text news-modal-text-right"></p>
+          </div>
+          <img src="./assets/galeria/alfalfa-detail.png" alt="Detailed view" class="news-modal-image">
+        </div>
+      </div>
+      
+      <!-- Modal para proyectos RSE -->
+      <div class="rse-modal">
+        <div class="rse-modal-content">
+          <button class="rse-modal-close">×</button>
+          <img src="/placeholder.svg" alt="" class="rse-modal-image">
+        </div>
+      </div>
+    </body>
+  </html>
+
+
+
+

@@ -1,0 +1,439 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.relevamientos-banner {
+  width: 100%;
+  background-color: #00001b;
+  font-family: "Roboto";
+  font-weight: 400;
+  padding: 40px clamp(1rem, 20vw, 20rem);
+  color: white;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  font-size: 32px;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.relevamientos-banner p {
+  margin: 0;
+}
+
+.relevamientos-banner strong {
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .relevamientos-banner {
+    padding: 30px 1rem;
+    font-size: 18px;
+  }
+
+  .relevamientos-banner p {
+    padding: 40px 25px;
+  }
+}
+
+/* Agregar estilos para la sección de videos y navegación */
+.video-section {
+  position: relative;
+  background-color: #00001b;
+  width: 100vw;
+  padding-bottom: 40px; /* Reducido de 200px a 40px */
+  margin-top: 0;
+  overflow: hidden; /* Prevenir desbordamiento */
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  padding: 20px clamp(1rem, 20vw, 20rem);
+  
+  width: 100vw;
+  overflow: hidden; /* Cambiado de overflow-x: auto para manejar la transición */
+  transition: transform 0.5s ease;
+  position: relative;
+  background-color: #00001b;
+  margin-top: -1px; /* Eliminar cualquier gap */
+  margin-bottom: -1px;
+}
+
+.video-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.video-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+.video-grid::-webkit-scrollbar-thumb {
+  background-color: #adcd00;
+  border-radius: 4px;
+}
+
+.video-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  background-color: #00001b;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.video-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Agregar delays escalonados para cada video */
+.video-container:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.video-container:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.video-container:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.video-container:nth-child(4) {
+  transition-delay: 0.4s;
+}
+.video-container:nth-child(5) {
+  transition-delay: 0.5s;
+}
+.video-container:nth-child(6) {
+  transition-delay: 0.6s;
+}
+
+.video-container:hover {
+  transform: scale(1.02);
+}
+
+.video-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.video-container:hover .video-thumbnail {
+  opacity: 0.7;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 50px;
+  opacity: 1;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+  z-index: 10; /* Asegurarse de que el botón de reproducción esté por encima de otros elementos */
+}
+
+.video-container:hover .play-button {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+/* Actualizar los estilos del fullscreen-video */
+.fullscreen-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.fullscreen-video iframe {
+  width: min(90vh, 90vw); /* Usar el valor más pequeño entre altura y ancho */
+  height: min(90vh, 90vw); /* Mantener proporción 1:1 */
+  max-width: 800px; /* Limitar tamaño máximo */
+  max-height: 800px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  background-color: #00001b;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  z-index: 1001;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.video-navigation {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 clamp(0.5rem, 10vw, 10rem);
+  transform: translateY(-50%);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.video-nav-button {
+  pointer-events: auto;
+}
+
+/* Estilos base para ambos botones de navegación */
+.video-nav-button {
+  position: absolute;
+  top: 40%;
+  width: 100px; /* Doubled from 50px */
+  height: 100px; /* Doubled from 50px */
+  font-size: 48px; /* Doubled from 24px */
+  border-radius: 0; /* Quitado el borde redondeado */
+  background-color: transparent; /* Fondo transparente */
+  color: #888; /* Color gris para la flecha */
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+/* Posicionamiento específico para cada botón */
+.video-prev-button {
+  left: clamp(0.5rem, 10vw, 10rem);
+  transform: translateY(-50%);
+}
+
+.video-next-button {
+  right: clamp(0.5rem, 10vw, 10rem);
+  transform: translateY(-50%);
+}
+
+.video-nav-button:hover {
+  background-color: transparent; /* Mantener fondo transparente en hover */
+  color: #adcd00; /* Cambiar a verde en hover */
+  transform: translateY(-50%) scale(1.1);
+}
+
+@media (max-width: 768px) {
+  body {
+    background-color: black;
+  }
+
+  .video-section {
+    margin: 0;
+    padding-top: 40px;
+    padding-bottom: 20px; /* Reducido aún más para móviles */
+    min-height: auto; /* Cambiado de 100vh a auto */
+  }
+
+  .video-grid {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Forzar continuidad con secciones adyacentes */
+  .earth-container,
+  .content-wrapper,
+  .section-3.expanded {
+    margin: 0;
+    padding-bottom: 0;
+  }
+  .video-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 7.5vw; /* Ajustado para centrar el video y ocultar el siguiente */
+    gap: 15vw; /* Aumentado para asegurar que no se vea el siguiente video */
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .video-container {
+    flex: 0 0 85vw; /* Ajustado para que coincida con el padding */
+    width: 85vw;
+    max-width: none;
+    aspect-ratio: 1 / 1;
+    margin: 0; /* Quitado el margin auto ya que usamos padding en el grid */
+    scroll-snap-align: center;
+    transform: scale(0.98);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+  }
+
+  /* Ocultar la barra de scroll pero mantener la funcionalidad */
+  .video-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .video-grid {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Ajustar posición de los botones de navegación */
+  .video-prev-button {
+    left: -20px; /* Moved outside the container */
+    position: absolute;
+  }
+
+  .video-next-button {
+    right: -20px; /* Moved outside the container */
+    position: absolute;
+  }
+
+  /* Hacer los botones de navegación más visibles */
+  .video-nav-button {
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+    background-color: transparent;
+    color: #888;
+    z-index: 100; /* Increased to ensure buttons are above all content */
+    position: absolute;
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+  }
+
+  .play-button {
+    width: 80px; /* Mejorar la experiencia táctil haciendo el área de toque más grande */
+    height: 60px; /* Mejorar la experiencia táctil haciendo el área de toque más grande */
+  }
+}
+
+/* Ajustes específicos para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .video-grid {
+    padding: 0 10vw; /* Ajustado para pantallas más pequeñas */
+    gap: 20vw; /* Aumentado para asegurar que no se vea el siguiente video */
+  }
+
+  .video-container {
+    flex: 0 0 80vw;
+    width: 80vw;
+    margin: 0 auto;
+  }
+
+  .video-section {
+    padding-bottom: 40px;
+  }
+
+  .video-nav-button {
+    width: 80px;
+    height: 80px;
+    font-size: 50px;
+  }
+
+  .play-button {
+    width: 60px;
+    height: 40px;
+  }
+}
+
+/* Agregar estos estilos al final del archivo para el overlay de confirmación */
+.video-confirm-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 20;
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.video-confirm-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.confirm-icon {
+  width: 70px;
+  height: 50px;
+  margin-bottom: 15px;
+}
+
+.confirm-text {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  
+}
+
+
+

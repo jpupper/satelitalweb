@@ -1,0 +1,270 @@
+.rse-section {
+  margin: 0 auto;
+  padding: 70px 10rem;
+  background-color: #f6f6f6;
+}
+
+.rse-title {
+  font-size: 60px;
+  margin-bottom: 10px;
+  font-family: "Roboto";
+  font-weight: 500;
+}
+
+.rse-subtitle {
+  font-size: 24px;
+  margin-bottom: 40px;
+  font-family: "Roboto";
+  font-weight: 400;
+  color: #444;
+}
+
+.rse-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.rse-carousel-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.rse-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+  gap: 20px;
+}
+
+.rse-card {
+  flex: 0 0 calc(33.333% - 20px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+}
+
+.rse-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Cambiado a 1/1 para hacer cuadrados perfectos */
+  margin-bottom: 15px;
+}
+
+.rse-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.rse-card:hover .rse-card-image {
+  transform: scale(1.05);
+}
+
+.rse-card-title {
+  font-size: 35px;
+  font-family: "Roboto";
+  font-weight: 500;
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+
+.rse-button {
+  display: inline-block;
+  background-color: transparent;
+  color: #b4cd00;
+  padding: 6px 14px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1px solid #b4cd00;
+  cursor: pointer;
+}
+
+.rse-button:hover {
+  background-color: rgba(180, 205, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.rse-carousel-button {
+  position: absolute;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  background-color: transparent;
+  border-radius: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 48px;
+  box-shadow: none;
+  transform: translateY(-50%);
+  z-index: 10;
+  color: #888;
+  transition: color 0.3s ease, transform 0.3s ease;
+  border: none;
+}
+
+.rse-carousel-button:hover {
+  background-color: transparent;
+  color: #adcd00;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.rse-carousel-button-prev {
+  left: -100px;
+}
+
+.rse-carousel-button-next {
+  right: -100px;
+}
+
+.rse-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+
+.rse-modal-content {
+  position: relative;
+  background-color: transparent;
+  max-width: 90%;
+  max-height: 90vh;
+  padding: 0;
+  border-radius: 0;
+}
+
+.rse-modal-close {
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: white;
+  z-index: 1001;
+  padding: 0;
+  line-height: 1;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rse-modal-title {
+  display: none;
+}
+
+.rse-modal-image {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .rse-section {
+    padding: 20px 30px;
+  }
+
+  .rse-title {
+    font-size: 36px;
+    padding-top: 20px;
+  }
+
+  .rse-subtitle {
+    font-size: 20px;
+  }
+
+  .rse-card {
+    flex: 0 0 calc(50% - 20px);
+  }
+
+  .rse-carousel-button {
+    width: 80px;
+    height: 80px;
+    font-size: 40px;
+  }
+
+  .rse-carousel-button-prev {
+    left: -40px;
+  }
+
+  .rse-carousel-button-next {
+    right: -40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rse-section {
+    padding: 20px;
+  }
+
+  .rse-card {
+    flex: 0 0 100%;
+    margin: 0;
+  }
+
+  .rse-carousel-wrapper {
+    padding: 0;
+    margin: 0 auto;
+    width: calc(100% - 80px);
+  }
+
+  .rse-carousel-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .rse-carousel-track {
+    gap: 0;
+  }
+
+  .rse-carousel-button {
+    width: 60px;
+    height: 60px;
+    font-size: 36px;
+  }
+
+  .rse-carousel-button-prev {
+    left: -40px;
+  }
+
+  .rse-carousel-button-next {
+    right: -40px;
+  }
+
+  .rse-modal-close {
+    top: -40px;
+    right: 0;
+  }
+}
+
+
+
+
+
+
+
+

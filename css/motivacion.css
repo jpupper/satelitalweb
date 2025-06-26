@@ -1,0 +1,182 @@
+@font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Light.ttf") format("truetype");
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  .motiva-section-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: white;
+    height: 100vh;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+  
+  .motiva-main-title {
+    font-family: "Roboto";
+    font-weight: bold;
+    font-style: normal;
+    padding-top: 3rem;
+    font-size: 2rem;
+    padding-bottom: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .motiva-columns-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    background-color: #f9f9f9;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .motiva-content-box {
+    flex: 1;
+    background-color: #f9f9f9;
+    padding: 1rem;
+  }
+  
+  .motiva-content-title {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1.8rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .motiva-content-text {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.2rem;
+     margin: 0;
+    line-height: 1.5;
+  }
+  @media (max-width: 480px){
+
+    .motiva-main-title  {
+      
+      margin-top: 0;
+      
+    }
+    .motiva-content-text {
+      font-size: 14px;
+    }
+    .motiva-section-container{
+      height: 900px;
+    
+    }
+  }
+  /* Tablet (768px y superior) */
+  @media (min-width: 768px) {
+    .motiva-section-container {
+      padding-left: 3rem;
+      padding-right: 3rem;
+    }
+  
+    .motiva-main-title {
+      font-size: 2.8rem;
+      padding-top: 4rem;
+      padding-bottom: 2rem;
+    }
+  
+    .motiva-columns-wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 2rem;
+    }
+  
+    .motiva-content-box {
+      flex: 0 0 calc(50% - 2rem);
+      padding: 1.5rem;
+    }
+  
+    .motiva-content-title {
+      font-size: 2rem;
+    }
+  
+    .motiva-content-text {
+      font-size: 1.3rem;
+    }
+  }
+  
+  /* Desktop (1024px y superior) */
+  @media (min-width: 1024px) {
+    .motiva-section-container {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+  
+    .motiva-main-title {
+      font-size: 3.5rem;
+      padding-top: 5rem;
+      padding-bottom: 3rem;
+    }
+  
+    .motiva-columns-wrapper {
+      flex-direction: row;
+      padding: 3rem 2rem;
+      gap: 2rem;
+    }
+  
+    .motiva-content-box {
+      flex: 1;
+    }
+  
+    .motiva-content-title {
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+    }
+  
+    .motiva-content-text {
+      font-size: clamp(0.9rem, 1vw, 1.4rem);
+    }
+  }
+  
+  /* Pantallas grandes (1440px y superior) */
+  @media (min-width: 1440px) {
+    .motiva-section-container {
+      padding-left: 15rem;
+      padding-right: 15rem;
+    }
+  
+    .motiva-content-text br {
+      display: inline; /* Mantener los saltos de línea en pantallas grandes */
+    }
+  }
+  
+  /* Ajuste para los saltos de línea en móvil y tablet */
+  @media (max-width: 1439px) {
+    .motiva-content-text br {
+      display: none; /* Eliminar saltos de línea en pantallas pequeñas */
+    }
+  }
+  
+  

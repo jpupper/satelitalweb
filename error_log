@@ -1,0 +1,4 @@
+[25-Mar-2025 17:53:17 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'c1700065_ghm'@'localhost' (using password: YES) in /home/arsatelitalghm/public_html/dbconfig.php on line 18
+[25-Mar-2025 17:53:25 UTC] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'c1700065_ghm'@'localhost' (using password: YES) in /home/arsatelitalghm/public_html/dbconfig.php on line 18
+[25-Mar-2025 19:11:47 UTC] PHP Warning:  mysqli::__construct(): (HY000/1044): Access denied for user 'arsatelitalghm_ghm'@'localhost' to database 'arsatelitalghm_bd' in /home/arsatelitalghm/public_html/dbconfig.php on line 23
+[25-Mar-2025 19:15:14 UTC] PHP Warning:  Attempt to read property "num_rows" on bool in /home/arsatelitalghm/public_html/rse-admin.php on line 98
