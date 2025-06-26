@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Crear el contenedor principal del footer
     const footerHTML = `
-        <section class="clientes-section">
+        <section id="clients-section" class="clientes-section">
             <h1>Nuestros Clientes</h1>
             
             <!-- Contenedor para vista desktop -->
@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <div id="contacto" class="contact-container">
             <h2 class="contact-title">Contacto</h2>
-            <div class="contact-grid">
+            <div id="contact-section" class="contact-grid">
                 <div class="contact-column">
                     <h3>Argentina</h3>
                     <p>Av. Libertador 2349 5º "A",<br>CABA, Buenos Aires</p>
@@ -150,9 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <!-- Columna 2 -->
                 <div class="footer-column">
-                    <a href="nosotros.html" class="footer-link">Misión</a>
-                    <a href="nosotros.html" class="footer-link">Visión</a>
-                    <a href="nosotros.html" class="footer-link">Valores</a>
+                    <a href="index.html#motiva-section" class="footer-link">Misión</a>
+                    <a href="index.html#motiva-section" class="footer-link">Visión</a>
+                    <a href="index.html#motiva-section" class="footer-link">Valores</a>
                     <a href="nosotros.html#news-section" class="footer-link">Actualidad</a>
                 </div>
 
@@ -177,8 +177,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
 
                 <div class="footer-column">
-                    <a href="#" class="footer-link">Trabajá con nosotros</a>
-                    <a href="#" class="footer-link">Clientes</a>
+                    <a href="#contact-section" class="footer-link">Trabajá con nosotros</a>
+                    <a href="#clients-section" class="footer-link">Clientes</a>
                 </div>
             </div>
             
