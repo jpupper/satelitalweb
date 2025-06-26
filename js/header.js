@@ -14,10 +14,45 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <nav id="main-nav">
             <div class="nav-links">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="geoespacial.html">Geoespacial</a>
-                <a href="soporte.html">Soporte Técnico</a>
+                <div class="nav-item">
+                    <a href="nosotros.html">Nosotros</a>
+                    <div class="dropdown-menu">
+                        <a href="index.html" class="motiva-link">Misión</a>
+                        <a href="index.html" class="motiva-link">Visión</a>
+                        <a href="index.html" class="motiva-link">Valores</a>
+                        <a href="nosotros.html#news-section">Actualidad</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="servicios.html">Servicios</a>
+                    <div class="dropdown-menu">
+                        <a href="servicios.html#conectividad-section">Conectividad</a>
+                        <a href="servicios.html#monitoreo-section">Monitoreo</a>
+                        <a href="servicios.html#gestion-it-section">Gestión IT</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="geoespacial.html">Geoespacial</a>
+                    <div class="dropdown-menu">
+                        <a href="geoespacial.html#fotogrametria-section">Fotogrametría</a>
+                        <a href="geoespacial.html#termografia-section">Termografía</a>
+                        <a href="geoespacial.html#magnetometria-section">Magnetometría</a>
+                        <a href="geoespacial.html#batimetria-section">Batimetría</a>
+                        <a href="geoespacial.html#lidar-section">LiDAR</a>
+                        <a href="geoespacial.html#control-activos-section">Control de Activos</a>
+                        <a href="geoespacial.html#procesamiento-datos-section">Procesamiento de Datos</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="soporte.html">Soporte Técnico</a>
+                    <div class="dropdown-menu">
+                        <a href="soporte.html#support-card">Soporte 24/7</a>
+                        <a href="soporte.html#connectivity-card">Conectividad Estable</a>
+                        <a href="soporte.html#solutions-card">Soluciones Efectivas</a>
+                        <a href="soporte.html#coverage-card">Cobertura Remota</a>
+                        <a href="soporte.html#mountain-card">Expertos en Alta Montaña</a>
+                    </div>
+                </div>
             </div>
             <a href="index.html"><img src="assets/nav/logoghm.png" alt="Logo" class="logo" /></a>
             <button class="mobile-menu-button" aria-label="Open menu">

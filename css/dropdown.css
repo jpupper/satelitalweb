@@ -1,0 +1,75 @@
+.nav-links {
+    position: relative;
+}
+
+.nav-links > a {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #f5f5f5;
+    min-width: 200px;
+    padding: 10px 0;
+    border-radius: 4px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-item {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.dropdown-menu a:hover {
+    background-color: #e5e5e5;
+    color: #000;
+}
+
+/* Animación del dropdown */
+.dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.nav-item:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Flecha indicadora */
+.nav-item > a::after {
+    content: '▼';
+    font-size: 8px;
+    margin-left: 5px;
+    vertical-align: middle;
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.nav-item:hover > a::after {
+    transform: rotate(180deg);
+}
