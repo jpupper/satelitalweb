@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/galeria.css" />
     <link rel="stylesheet" href="css/rse.css" />
     <link rel="stylesheet" href="css/hamburguesa.css" />
+    
+    <script src="js/header.js"></script>
     <script>
       // Prevenir FOUC
       document.documentElement.classList.add('no-fouc');
@@ -21,21 +23,11 @@
     </script>
   </head>
   <body>
-    <script src="js/header.js"></script>
-    <div class="hero-nosotros">
-      <h1><span class="highlight">Conectividad en altura,</span><br> expertos en montaña</h1>
-    </div>
-    <div class="cordillera"> 
-       <div class="cordillera-about-card">
-      <h1 class="cordillera-about-title">Desde la Cordillera, <br> conectando lo inalcanzable</h1>
-      <p class="cordillera-about-description">
-          Nacidos en Barreal, Calingasta, conocemos la vida en la cordillera, donde los 
-          desafíos superan los 5.000 metros. Esta experiencia nos impulsa a brindar 
-          soluciones rápidas y eficientes, adaptadas a terrenos extremos. Con sedes 
-          en San Juan Capital, Calingasta e Iglesia, llegamos a los lugares más 
-          remotos de Argentina y la región, ofreciendo conectividad, monitoreo y 
-          tecnología para minería, energía e industria.
-      </p>
+     
+    <!-- Modificar el h1 en el hero-nosotros para usar spans con clase highlight -->
+<div class="hero-nosotros">
+  <h1><span class="highlight">Conectividad en altura,</span><br> expertos en montaña</h1>
+</div>
   <div class="cordillera"> 
      <div class="cordillera-about-card">
     <h1 class="cordillera-about-title">Desde la Cordillera, <br> conectando lo inalcanzable</h1>
@@ -85,7 +77,7 @@
 
 
 <div class="fondo">
-  <div id="news-section" class="news-section">
+  <div class="news-section">
     <h1 class="news-title">Actualidad</h1>
     
     <div class="news-carousel-wrapper">
@@ -149,6 +141,10 @@
                     <a href="#" class="news-button">Ver noticia &gt;</a>
                 </div>
             </div>
+            
+     
+            
+      
         </div>
       </div>
         
@@ -156,8 +152,16 @@
     </div>
   </div>
   
-  </div>
-
+  </div>     
+      <!-- Scripts -->
+      <script src="js/video.js"></script>
+      <script src="js/nosotros.js"></script>
+      <script src="js/galeria.js"></script>
+      <script src="js/rse.js"></script>
+      <script src="js/nav.js"></script>
+      <script src="js/mainnav.js"></script>
+      <script src="js/footer.js"></script>
+  
       <div class="news-modal">
         <div class="news-modal-content">
           <button class="news-modal-close">×</button>
@@ -179,14 +183,8 @@
         </div>
       </div>
     </body>
-           
-     
-      <!-- Scripts -->
-      <script src="js/video.js"></script>
-      <script src="js/nosotros.js"></script>
-      <script src="js/galeria.js"></script>
-      <script src="js/rse.js"></script>
-      <script src="js/nav.js"></script>
-      <script src="js/mainnav.js"></script>
-      <script src="js/footer.js"></script>
   </html>
+
+
+
+

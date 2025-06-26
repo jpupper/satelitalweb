@@ -150,9 +150,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <!-- Columna 2 -->
                 <div class="footer-column">
-                    <a href="index.html#motiva-section" class="footer-link">Misión</a>
-                    <a href="index.html#motiva-section" class="footer-link">Visión</a>
-                    <a href="index.html#motiva-section" class="footer-link">Valores</a>
+                    <a href="index.html" class="footer-link motiva-link">Misión</a>
+                    <a href="index.html" class="footer-link motiva-link">Visión</a>
+                    <a href="index.html" class="footer-link motiva-link">Valores</a>
                     <a href="nosotros.html#news-section" class="footer-link">Actualidad</a>
                 </div>
 
@@ -203,4 +203,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Insertar el footer antes del cierre del body
     document.body.insertAdjacentHTML('beforeend', footerHTML);
+
+    // Agregar event listeners para los enlaces de la sección motiva
+    setTimeout(() => {
+        document.querySelectorAll('.motiva-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Si estamos en index.html
+                if (window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/')) {
+                    if (typeof window.navigateToMotiva === 'function') {
+                        window.navigateToMotiva();
+                    }
+                } else {
+                    // Si estamos en otra página, redirigir a index.html#motiva-section
+                    window.location.href = 'index.html#motiva-section';
+                }
+            });
+        });
+    }, 100); // Esperar a que el DOM esté listo
 });

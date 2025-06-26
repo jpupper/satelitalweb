@@ -8,17 +8,17 @@ document.addEventListener('DOMContentLoaded', function() {
   const SCROLL_THRESHOLD = 100;
   const TOUCH_THRESHOLD = isMobileDevice ? 5 : 30;
   
-  // Variables de estado
-  let currentSection = 1;
-  let isAnimating = false;
-  let hasExpanded = false;
-  let touchStartY = 0;
-  let touchStartX = 0;
-  let scrollAccumulator = 0;
-  let isScrollEnabled = true;
-  let isNavigatingBack = false;
-  let scrollSavedPosition = 0;
-  let scrollUnlocked = false;
+  // Variables de estado globales
+window.currentSection = 1;
+window.isAnimating = false;
+window.hasExpanded = false;
+window.touchStartY = 0;
+window.touchStartX = 0;
+window.scrollAccumulator = 0;
+window.isScrollEnabled = true;
+window.isNavigatingBack = false;
+window.scrollSavedPosition = 0;
+window.scrollUnlocked = false;
 
   // Obtener referencias a las secciones
   const section1 = document.getElementById("section1");
@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Función para animar entre secciones
-  function animateToSection(sectionNumber) {
+  window.animateToSection = function(sectionNumber) {
     if (isAnimating || !isScrollEnabled) return;
     
     isAnimating = true;
@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Función específica para desbloquear completamente el scroll
-  function unlockScrollCompletely() {
+  window.unlockScrollCompletely = function() {
     // Primero, asegurarnos de que todas las propiedades de bloqueo se eliminen
     document.documentElement.style.overflow = "";
     document.body.style.overflow = "";
@@ -402,6 +402,45 @@ document.addEventListener('DOMContentLoaded', function() {
       }, 10);
     }, 100); // Esperar a que termine la animación
   });
+
+  // Función para navegar a la sección motiva
+  window.navigateToMotiva = function() {
+    console.log("Navegando a sección motiva");
+    
+    // Forzar la animación hasta la sección 3
+    if (currentSection !== 3) {
+      animateToSection(3);
+    }
+    
+    // Después de que termine la animación, expandir y desbloquear
+    setTimeout(() => {
+      const section3 = document.getElementById("section3");
+      if (section3) {
+        section3.classList.add("expanded");
+      }
+      
+      // Asegurar que estamos en el estado correcto
+      hasExpanded = true;
+      isScrollEnabled = true;
+      scrollUnlocked = true;
+      
+      // Desbloquear el scroll completamente
+      unlockScrollCompletely();
+      
+      // Hacer scroll hasta la sección motiva
+      setTimeout(() => {
+        const motivaSection = document.getElementById('motiva-section');
+        if (motivaSection) {
+          motivaSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 10);
+    }, 100);
+  }
+
+  // Verificar si hay un hash en la URL al cargar
+  if (window.location.hash === '#motiva-section') {
+    navigateToMotiva();
+  }
 
   // Inicialización
   initializeScroll();
