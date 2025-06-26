@@ -143,37 +143,37 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-content">
                 <!-- Columna 1 -->
                 <div class="footer-column">
-                    <a href="#" class="footer-link">Conectividad</a>
-                    <a href="#" class="footer-sublink">Monitoreo</a>
-                    <a href="#" class="footer-sublink">Gestion IT</a>
+                    <a href="servicios.html#conectividad-section" class="footer-link">Conectividad</a>
+                    <a href="servicios.html#monitoreo-section" class="footer-sublink">Monitoreo</a>
+                    <a href="servicios.html#gestion-it-section" class="footer-sublink">Gestión IT</a>
                 </div>
 
                 <!-- Columna 2 -->
                 <div class="footer-column">
-                    <a href="#" class="footer-link">Misión</a>
-                    <a href="#" class="footer-link">Visión</a>
-                    <a href="#" class="footer-link">Valores</a>
-                    <a href="#" class="footer-link">Actualidad</a>
+                    <a href="nosotros.html" class="footer-link">Misión</a>
+                    <a href="nosotros.html" class="footer-link">Visión</a>
+                    <a href="nosotros.html" class="footer-link">Valores</a>
+                    <a href="nosotros.html#news-section" class="footer-link">Actualidad</a>
                 </div>
 
                 <!-- Columna 3 -->
                 <div class="footer-column">
-                    <a href="#" class="footer-link">Fotogrametría</a>
-                    <a href="#" class="footer-link">Termografía</a>
-                    <a href="#" class="footer-link">Magnetometría</a>
-                    <a href="#" class="footer-link">Batimetría</a>
-                    <a href="#" class="footer-link">LiDAR</a>
-                    <a href="#" class="footer-link">Control de Activos</a>
-                    <a href="#" class="footer-link">Procesamiento de Datos</a>
+                    <a href="geoespacial.html#fotogrametria-section" class="footer-link">Fotogrametría</a>
+                    <a href="geoespacial.html#termografia-section" class="footer-link">Termografía</a>
+                    <a href="geoespacial.html#magnetometria-section" class="footer-link">Magnetometría</a>
+                    <a href="geoespacial.html#batimetria-section" class="footer-link">Batimetría</a>
+                    <a href="geoespacial.html#lidar-section" class="footer-link">LiDAR</a>
+                    <a href="geoespacial.html#control-activos-section" class="footer-link">Control de Activos</a>
+                    <a href="geoespacial.html#procesamiento-datos-section" class="footer-link">Procesamiento de Datos</a>
                 </div>
 
                 <!-- Columna 4 -->
                 <div class="footer-column">
-                    <a href="#" class="footer-link">Soporte 24/7</a>
-                    <a href="#" class="footer-link">ConectividadEstable</a>
-                    <a href="#" class="footer-link">Soluciones Efectivas</a>
-                    <a href="#" class="footer-link">Cobertura Remota</a>
-                    <a href="#" class="footer-link">Expertos en Alta Montaña</a>
+                    <a href="soporte.html#support-card" class="footer-link">Soporte 24/7</a>
+                    <a href="soporte.html#connectivity-card" class="footer-link">Conectividad Estable</a>
+                    <a href="soporte.html#solutions-card" class="footer-link">Soluciones Efectivas</a>
+                    <a href="soporte.html#coverage-card" class="footer-link">Cobertura Remota</a>
+                    <a href="soporte.html#mountain-card" class="footer-link">Expertos en Alta Montaña</a>
                 </div>
 
                 <div class="footer-column">
