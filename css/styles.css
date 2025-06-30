@@ -88,6 +88,22 @@ body {
   gap: 5px;
 }
 
+.language-switch {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  transition: all 0.3s ease;
+}
+
+.language-switch.active-language {
+  color: #007bff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .top-navbar .top-icon {
   width: 20px;
   height: 20px;
@@ -258,6 +274,22 @@ nav.at-top {
 @media (max-width: 768px) {
   .top-navbar .right-links {
     gap: 10px;
+  }
+
+  .top-navbar .language-switch {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    transition: all 0.3s ease;
+  }
+
+  .language-switch.active-language {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: underline;
   }
 
   .top-navbar .top-link {

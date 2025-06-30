@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Crear el contenedor principal del footer
     const footerHTML = `
         <section id="clients-section" class="clientes-section">
-            <h1>Nuestros Clientes</h1>
+            <h1><span data-i18n="clientes_titulo">Nuestros Clientes</span></h1>
             
             <!-- Contenedor para vista desktop -->
             <div class="logos-container desktop-logos">
@@ -109,27 +109,27 @@ document.addEventListener('DOMContentLoaded', function() {
         </section>
 
         <div id="contacto" class="contact-container">
-            <h2 class="contact-title">Contacto</h2>
+            <h2 class="contact-title"><span data-i18n="nav_contacto">Contacto</span></h2>
             <div id="contact-section" class="contact-grid">
                 <div class="contact-column">
-                    <h3>Argentina</h3>
-                    <p>Av. Libertador 2349 5º "A",<br>CABA, Buenos Aires</p>
+                    <h3><span data-i18n="contacto_argentina">Argentina</span></h3>
+                    <p><span data-i18n="contacto_bsas">Av. Libertador 2349 5º "A",<br>CABA, Buenos Aires</span></p>
                 </div>
                 <div class="contact-column">
-                    <h3>San Juan</h3>
-                    <p>Esteban Echeverría 772 (sur),<br>Capital</p>
-                    <p>Huarpes 1226 (oeste),<br>Barreal, Calingasta</p>
-                    <p>Calle Central y Calle 2,<br>Estancia Guañizuil, Iglesia</p>
+                    <h3><span data-i18n="contacto_sanjuan">San Juan</span></h3>
+                    <p><span data-i18n="contacto_sanjuan_capital">Esteban Echeverría 772 (sur),<br>Capital</span></p>
+                    <p><span data-i18n="contacto_sanjuan_barreal">Huarpes 1226 (oeste),<br>Barreal, Calingasta</span></p>
+                    <p><span data-i18n="contacto_sanjuan_iglesia">Calle Central y Calle 2,<br>Estancia Guañizuil, Iglesia</span></p>
                 </div>
                 <div class="contact-column">
-                    <h3>Chile</h3>
-                    <p>Av. Pacífico 5103, Torre 1 / Dpto. 63<br>La Serena, Coquimbo</p>
+                    <h3><span data-i18n="contacto_chile">Chile</span></h3>
+                    <p><span data-i18n="contacto_chile_serena">Av. Pacífico 5103, Torre 1 / Dpto. 63<br>La Serena, Coquimbo</span></p>
                 </div>
                 <div class="contact-column">
-                    <h3>Información</h3>
+                    <h3><span data-i18n="contacto_info">Información</span></h3>
                     <p><a href="mailto:contacto@ghmsatelital.ar">contacto@ghmsatelital.ar</a><br>
                     <a href="tel:+5492644558684">+54 9 2644558684</a></p>
-                    <p>Trabaja con Nosotros:<br>
+                    <p><span data-i18n="contacto_trabajo">Trabaja con Nosotros</span>:<br>
                     <a href="mailto:info@ghmsatelital.ar">info@ghmsatelital.ar</a></p>
                 </div>
             </div>
@@ -143,42 +143,42 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="footer-content">
                 <!-- Columna 1 -->
                 <div class="footer-column">
-                    <a href="servicios.html#conectividad-section" class="footer-link">Conectividad</a>
-                    <a href="servicios.html#monitoreo-section" class="footer-sublink">Monitoreo</a>
-                    <a href="servicios.html#gestion-it-section" class="footer-sublink">Gestión IT</a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_conectividad">Conectividad</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_monitoreo">Monitoreo</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_gestion">Gestión IT</span></a>
                 </div>
 
                 <!-- Columna 2 -->
                 <div class="footer-column">
-                    <a href="index.html" class="footer-link motiva-link">Misión</a>
-                    <a href="index.html" class="footer-link motiva-link">Visión</a>
-                    <a href="index.html" class="footer-link motiva-link">Valores</a>
-                    <a href="nosotros.html#news-section" class="footer-link">Actualidad</a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_mision">Misión</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_vision">Visión</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_valores">Valores</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_rse">RSE</span></a>
                 </div>
 
                 <!-- Columna 3 -->
                 <div class="footer-column">
-                    <a href="geoespacial.html#fotogrametria-section" class="footer-link">Fotogrametría</a>
-                    <a href="geoespacial.html#termografia-section" class="footer-link">Termografía</a>
-                    <a href="geoespacial.html#magnetometria-section" class="footer-link">Magnetometría</a>
-                    <a href="geoespacial.html#batimetria-section" class="footer-link">Batimetría</a>
-                    <a href="geoespacial.html#lidar-section" class="footer-link">LiDAR</a>
-                    <a href="geoespacial.html#control-activos-section" class="footer-link">Control de Activos</a>
-                    <a href="geoespacial.html#procesamiento-datos-section" class="footer-link">Procesamiento de Datos</a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_fotogrametria">Fotogrametría</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_termografia">Termografía</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_magnetometria">Magnetometría</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_batimetria">Batimetría</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_lidar">LiDAR</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_control">Control de Activos</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_procesamiento">Procesamiento de Datos</span></a>
                 </div>
 
                 <!-- Columna 4 -->
                 <div class="footer-column">
-                    <a href="soporte.html#support-card" class="footer-link">Soporte 24/7</a>
-                    <a href="soporte.html#connectivity-card" class="footer-link">Conectividad Estable</a>
-                    <a href="soporte.html#solutions-card" class="footer-link">Soluciones Efectivas</a>
-                    <a href="soporte.html#coverage-card" class="footer-link">Cobertura Remota</a>
-                    <a href="soporte.html#mountain-card" class="footer-link">Expertos en Alta Montaña</a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_soporte_24_7">Soporte 24/7</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_conectividad_estable">Conectividad Estable</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_soluciones">Soluciones Efectivas</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_cobertura">Cobertura Remota</span></a>
+                    <a href="#" class="footer-link"><span data-i18n="nav_montana">Expertos en Alta Montaña</span></a>
                 </div>
 
                 <div class="footer-column">
-                    <a href="#contact-section" class="footer-link">Trabajá con nosotros</a>
-                    <a href="#clients-section" class="footer-link">Clientes</a>
+                    <a href="#contact-section" class="footer-link"><span data-i18n="contacto_trabajo">Trabajá con nosotros</span></a>
+                    <a href="#clients-section" class="footer-link"><span data-i18n="clientes_titulo">Clientes</span></a>
                 </div>
             </div>
             
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         
         <div class="copyright-bar">
-            ghm satelital © 2025 / Todos los derechos reservados
+            <span data-i18n="copyright">ghm satelital © 2025 / Todos los derechos reservados</span>
         </div>
     `;
 

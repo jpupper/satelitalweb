@@ -1,80 +1,94 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Crear el header HTML
+// Función para crear y añadir el header
+function createHeader() {
     const headerHTML = `
         <div class="top-navbar">
             <div class="container">
                 <div class="right-links">
-                    <a href="#contacto" id="botoncontacto" class="top-link">Contacto <img src="assets/nav/contacto.svg" alt="Email" class="top-icon"></a>
-                    <a href="#" class="top-link">Clientes | Login <img src="assets/nav/usuario.svg" alt="User" class="top-icon"></a>
-                    <a href="index.html" class="top-link">ESP</a><p>|</p>
-                    <a href="en/index.html" class="top-link">ENG</a>
+                    <a href="#contacto" id="botoncontacto" class="top-link">
+                        <span data-i18n="nav_contacto">Contacto</span>
+                        <img src="assets/nav/contacto.svg" alt="Email" class="top-icon">
+                    </a>
+                    <a href="#" class="top-link">
+                        <span data-i18n="nav_clientes">Clientes | Login</span>
+                        <img src="assets/nav/usuario.svg" alt="User" class="top-icon">
+                    </a>
+                    <button class="language-switch top-link" data-lang="es" onclick="switchLanguage('es')">
+                        <span data-i18n="nav_spanish">ESP</span>
+                    </button>
+                    <p>|</p>
+                    <button class="language-switch top-link" data-lang="en" onclick="switchLanguage('en')">
+                        <span data-i18n="nav_english">ENG</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <nav id="main-nav">
             <div class="nav-links">
-                <div class="nav-item">
-                    <a href="nosotros.html">Nosotros</a>
-                    <div class="dropdown-menu">
-                        <a href="index.html" class="motiva-link">Misión</a>
-                        <a href="index.html" class="motiva-link">Visión</a>
-                        <a href="index.html" class="motiva-link">Valores</a>
-                        <a href="nosotros.html#news-section">Actualidad</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a href="servicios.html">Servicios</a>
-                    <div class="dropdown-menu">
-                        <a href="servicios.html#conectividad-section">Conectividad</a>
-                        <a href="servicios.html#monitoreo-section">Monitoreo</a>
-                        <a href="servicios.html#gestion-it-section">Gestión IT</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a href="geoespacial.html">Geoespacial</a>
-                    <div class="dropdown-menu">
-                        <a href="geoespacial.html#fotogrametria-section">Fotogrametría</a>
-                        <a href="geoespacial.html#termografia-section">Termografía</a>
-                        <a href="geoespacial.html#magnetometria-section">Magnetometría</a>
-                        <a href="geoespacial.html#batimetria-section">Batimetría</a>
-                        <a href="geoespacial.html#lidar-section">LiDAR</a>
-                        <a href="geoespacial.html#control-activos-section">Control de Activos</a>
-                        <a href="geoespacial.html#procesamiento-datos-section">Procesamiento de Datos</a>
-                    </div>
-                </div>
-                <div class="nav-item">
-                    <a href="soporte.html">Soporte Técnico</a>
-                    <div class="dropdown-menu">
-                        <a href="soporte.html#support-card">Soporte 24/7</a>
-                        <a href="soporte.html#connectivity-card">Conectividad Estable</a>
-                        <a href="soporte.html#solutions-card">Soluciones Efectivas</a>
-                        <a href="soporte.html#coverage-card">Cobertura Remota</a>
-                        <a href="soporte.html#mountain-card">Expertos en Alta Montaña</a>
-                    </div>
-                </div>
+                <a href="nosotros.html" class="nav-link">
+                    <span data-i18n="nav_nosotros">Nosotros</span>
+                </a>
+                <a href="servicios.html" class="nav-link">
+                    <span data-i18n="nav_servicios">Servicios</span>
+                </a>
+                <a href="geosatelital.html" class="nav-link">
+                    <span data-i18n="nav_geoespacial">Geoespacial</span>
+                </a>
+                <a href="soporte.html" class="nav-link">
+                    <span data-i18n="nav_soporte">Soporte Técnico</span>
+                </a>
             </div>
-            <a href="index.html"><img src="assets/nav/logoghm.png" alt="Logo" class="logo" /></a>
-            <button class="mobile-menu-button" aria-label="Open menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
         </nav>
+
+        <div class="hamburger-menu">
+            <div class="hamburger-icon">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+            <div class="mobile-menu">
+                <a href="#" class="mobile-link" data-page="inicio">
+                    <span data-i18n="main_titulo">Conectividad + Monitoreo integral + Servicios tecnológicos innovadores</span>
+                </a>
+                <a href="#" class="mobile-link" data-page="nosotros">
+                    <span data-i18n="nav_nosotros">Nosotros</span>
+                </a>
+                <a href="#" class="mobile-link" data-page="servicios">
+                    <span data-i18n="servicios_titulo">Servicios</span>
+                </a>
+                <div class="mobile-submenu">
+                    <a href="#conectividad" class="mobile-sublink">
+                        <span data-i18n="servicios_conectividad">Conectividad</span>
+                    </a>
+                    <a href="#monitoreo" class="mobile-sublink">
+                        <span data-i18n="servicios_monitoreo">Monitoreo</span>
+                    </a>
+                    <a href="#soporte" class="mobile-sublink">
+                        <span data-i18n="nav_soporte">Soporte Técnico</span>
+                    </a>
+                </div>
+                <a href="#" class="mobile-link" data-page="geosatelital">
+                    <span data-i18n="geo_titulo">Geoespacial</span>
+                </a>
+                <a href="#" class="mobile-link" data-page="actualidad">
+                    <span data-i18n="actualidad_titulo">Actualidad</span>
+                </a>
+            </div>
+        </div>
 
         <div class="mobile-menu-overlay">
             <div class="mobile-menu-header">
-                <img src="assets/nav/logoghm.png" alt="Logo" class="mobile-logo" />
+                <img src="assets/nav/logoghm.png" alt="Logo" class="mobile-logo">
                 <button class="mobile-menu-close" aria-label="Close menu">
                     <span></span>
                     <span></span>
                 </button>
             </div>
             <div class="mobile-menu-links">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="servicios.html">Servicios</a>
-                <a href="geoespacial.html">Geoespacial</a>
-                <a href="soporte.html">Soporte Técnico</a>
+                <a href="#" data-page="nosotros"><span data-i18n="nav_nosotros">Nosotros</span></a>
+                <a href="#" data-page="servicios"><span data-i18n="servicios_titulo">Servicios</span></a>
+                <a href="#" data-page="geosatelital"><span data-i18n="geo_titulo">Geoespacial</span></a>
+                <a href="#" data-page="soporte"><span data-i18n="nav_soporte">Soporte Técnico</span></a>
             </div>
             <div class="mobile-social-links">
                 <a href="https://www.youtube.com/@GHMSATELITAL/shorts" class="social-icon">
@@ -92,4 +106,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Insertar el header al inicio del body
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
-});
+
+    // Inicializar el menú hamburguesa después de crear el header
+    const hamburger = document.querySelector('.hamburger-icon');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+    const mobileMenuClose = document.querySelector('.mobile-menu-close');
+
+    // Manejar la navegación
+    const navLinks = document.querySelectorAll('[data-page]');
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const page = link.getAttribute('data-page');
+            const currentLang = localStorage.getItem('selectedLanguage') || 'es';
+            window.location.href = `${page}.html`;
+        });
+    });
+
+    if (hamburger && mobileMenu) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            if (mobileMenuOverlay) {
+                mobileMenuOverlay.classList.toggle('active');
+            }
+        });
+    }
+
+    if (mobileMenuClose && mobileMenuOverlay) {
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenuOverlay.classList.remove('active');
+            if (hamburger) {
+                hamburger.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Inicializar el header cuando el DOM esté listo
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', createHeader);
+} else {
+    createHeader();
+}
