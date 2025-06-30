@@ -1,38 +1,38 @@
 <?php
-require_once 'dbconfig.php';
+require_once '../dbconfig.php';
 $conexion = getDBConnection();
 
 // Verificar si se proporcionó un ID
 if (!isset($_GET['id']) || empty($_GET['id'])) {
-    header("Location: rse-admin.php");
+    header("Location: admin.php");
     exit;
 }
 
 $id = intval($_GET['id']);
 
-// Obtener información del proyecto para posiblemente eliminar archivos
-$stmt = $conexion->prepare("SELECT image, popupImage FROM rse_projects WHERE id = ?");
+// Obtener información de la noticia para posiblemente eliminar archivos
+$stmt = $conexion->prepare("SELECT image, modalImage FROM noticias WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();
 $resultado = $stmt->get_result();
 
 if ($resultado->num_rows > 0) {
-    // Eliminar el proyecto de la base de datos
-    $stmt = $conexion->prepare("DELETE FROM rse_projects WHERE id = ?");
+    // Eliminar la noticia de la base de datos
+    $stmt = $conexion->prepare("DELETE FROM noticias WHERE id = ?");
     $stmt->bind_param("i", $id);
     
     if ($stmt->execute()) {
         // Redireccionar al panel de administración con mensaje de éxito
-        header("Location: rse-admin.php?success=delete");
+        header("Location: admin.php?success=delete");
         exit;
     } else {
         // Error al eliminar
-        header("Location: rse-admin.php?error=delete");
+        header("Location: admin.php?error=delete");
         exit;
     }
 } else {
-    // El proyecto no existe
-    header("Location: rse-admin.php");
+    // La noticia no existe
+    header("Location: admin.php");
     exit;
 }
 

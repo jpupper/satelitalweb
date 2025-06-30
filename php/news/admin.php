@@ -1,5 +1,5 @@
 <?php
-require_once 'dbconfig.php';
+require_once '../dbconfig.php';
 $conexion = getDBConnection();
 
 // Verificar si se ha enviado una acción para cambiar el estado de una noticia

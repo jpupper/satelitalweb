@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   // Cargar proyectos RSE desde la API
-  fetch("rse-api.php")
+  fetch("/satelital/php/rse/rse-api.php")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error al cargar los proyectos RSE")

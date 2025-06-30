@@ -7,7 +7,7 @@ function updateVisibleItems() {
 
 document.addEventListener("DOMContentLoaded", () => {
   // Cargar noticias desde la API
-  fetch("news-api.php")
+  fetch("/satelital/php/news/news-api.php")
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error al cargar las noticias")
