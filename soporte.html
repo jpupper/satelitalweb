@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/soporte.css" />
     <link rel="stylesheet" href="css/hamburguesa.css" />
     <link rel="stylesheet" href="css/dropdown.css" />
-    <script src="js/header.js"></script>
   </head>
 <body>
   <!-- Nuevo contenedor hero -->
@@ -32,7 +31,8 @@
                 <img src="assets/soporte/24.png" alt="24/7 icono" class="card-icono">
             </div>
             <div class="card-text">
-                <h3>Soporte<br>24/7</h3>
+                <h1><span data-i18n="soporte_hero_titulo">Soporte Técnico</span></h1>
+                <h2><span data-i18n="soporte_hero_subtitulo">Estamos para ayudarte</span></h2>
                 <p class="card-description">Asistencia continua, sin importar <br>
                 la hora o ubicacion. </p>
             </div>
@@ -62,11 +62,8 @@
                     <img src="assets/soporte/conectividad.png" alt="Signal icono" class="card-icono">
                 </div>
                 <div class="card-text">
-                    <h3>Conectividad<br>Estable</h3>
-                    <p class="card-description">Mantenemos <br>
-                    tu conexción en <br> 
-                    todo momento.
-                    </p>
+                    <h2><span data-i18n="soporte_conectividad_titulo">Conectividad Estable</span></h2>
+                    <p><span data-i18n="soporte_conectividad_desc">Garantizamos una conectividad estable y confiable, con monitoreo constante y mantenimiento preventivo.</span></p>
                 </div>
                 <button class="plus-btn" aria-label="Ver más">+</button>
             </div>
@@ -78,11 +75,8 @@
                     <img src="assets/soporte/icono_soluciones_soporte.png" alt="Bulb icono" class="card-icono">
                 </div>
                 <div class="card-text">
-                    <h3>Soluciones<br>Efectivas</h3>
-                    <p class="card-description">Resolvemos <br>
-                    cualquier incidencia <br>
-                    con rapidez y <br>
-                    eficiencia.</p>
+                    <h2><span data-i18n="soporte_24_7_titulo">Soporte 24/7</span></h2>
+                    <p><span data-i18n="soporte_24_7_desc">Nuestro equipo está disponible las 24 horas del día, los 7 días de la semana para resolver cualquier incidencia.</span></p>
                 </div>
                 <button class="plus-btn" aria-label="Ver más">+</button>
             </div>
@@ -94,11 +88,8 @@
                     <img src="assets/soporte/wifi.png" alt="Wifi icono" class="card-icono">
                 </div>
                 <div class="card-text">
-                    <h3>Cobertura<br>Remota</h3>
-                    <p class="card-description">Servicio de <br>
-                    internet satelital <br>
-                    en los entornos <br>
-                    más desafiantes.</p>
+                    <h2><span data-i18n="soporte_cobertura_titulo">Cobertura Remota</span></h2>
+                    <p><span data-i18n="soporte_cobertura_desc">Llegamos a los lugares más remotos para asegurar la continuidad de tus operaciones.</span></p>
                 </div>
                 <button class="plus-btn" aria-label="Ver más">+</button>
             </div>
@@ -109,24 +100,24 @@
 </div>
 
 <script src="js/footer.js"></script>
-
     <div class="copyright-bar">
       ghm satelital 2025 / Todos los derechos reservados
     </div>
      
 
 <!-- Scripts -->
+<script src="js/translations.js"></script>
+<script>
+    // Inicializar el sistema de traducción
+    initializeTranslations();
+</script>
+<script src="js/header.js"></script>
+<script src="js/video.js"></script>
 <script src="js/soporte.js"></script>
-<script src="js/nav.js"></script>
 <script src="js/galeria.js"></script>
+<script src="js/nav.js"></script>
 <script src="js/mainnav.js"></script>
-
-
+<script src="js/footer.js"></script>
 
 </body>
 </html>
-
-
-
-
-

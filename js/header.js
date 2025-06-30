@@ -12,11 +12,11 @@ function createHeader() {
                         <span data-i18n="nav_clientes">Clientes | Login</span>
                         <img src="assets/nav/usuario.svg" alt="User" class="top-icon">
                     </a>
-                    <button class="language-switch top-link" data-lang="es" onclick="switchLanguage('es')">
+                    <button class="language-switch top-link" data-lang="es">
                         <span data-i18n="nav_spanish">ESP</span>
                     </button>
                     <p>|</p>
-                    <button class="language-switch top-link" data-lang="en" onclick="switchLanguage('en')">
+                    <button class="language-switch top-link" data-lang="en">
                         <span data-i18n="nav_english">ENG</span>
                     </button>
                 </div>
@@ -31,7 +31,7 @@ function createHeader() {
                 <a href="servicios.html" class="nav-link">
                     <span data-i18n="nav_servicios">Servicios</span>
                 </a>
-                <a href="geosatelital.html" class="nav-link">
+                <a href="geoespacial.html" class="nav-link">
                     <span data-i18n="nav_geoespacial">Geoespacial</span>
                 </a>
                 <a href="soporte.html" class="nav-link">
@@ -67,7 +67,7 @@ function createHeader() {
                         <span data-i18n="nav_soporte">Soporte Técnico</span>
                     </a>
                 </div>
-                <a href="#" class="mobile-link" data-page="geosatelital">
+                <a href="#" class="mobile-link" data-page="geoespacial">
                     <span data-i18n="geo_titulo">Geoespacial</span>
                 </a>
                 <a href="#" class="mobile-link" data-page="actualidad">
@@ -87,7 +87,7 @@ function createHeader() {
             <div class="mobile-menu-links">
                 <a href="#" data-page="nosotros"><span data-i18n="nav_nosotros">Nosotros</span></a>
                 <a href="#" data-page="servicios"><span data-i18n="servicios_titulo">Servicios</span></a>
-                <a href="#" data-page="geosatelital"><span data-i18n="geo_titulo">Geoespacial</span></a>
+                <a href="#" data-page="geoespacial"><span data-i18n="geo_titulo">Geoespacial</span></a>
                 <a href="#" data-page="soporte"><span data-i18n="nav_soporte">Soporte Técnico</span></a>
             </div>
             <div class="mobile-social-links">
@@ -107,11 +107,27 @@ function createHeader() {
     // Insertar el header al inicio del body
     document.body.insertAdjacentHTML('afterbegin', headerHTML);
 
-    // Inicializar el menú hamburguesa después de crear el header
+    // Inicializar el menú hamburguesa y los botones de idioma después de crear el header
     const hamburger = document.querySelector('.hamburger-icon');
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
     const mobileMenuClose = document.querySelector('.mobile-menu-close');
+    const languageButtons = document.querySelectorAll('.language-switch');
+
+    // Configurar los botones de idioma
+    languageButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const lang = this.getAttribute('data-lang');
+            if (typeof switchLanguage === 'function') {
+                switchLanguage(lang);
+                // Actualizar el estado visual de los botones
+                languageButtons.forEach(btn => {
+                    btn.classList.toggle('active-language', btn.getAttribute('data-lang') === lang);
+                });
+            }
+        });
+    });
 
     // Manejar la navegación
     const navLinks = document.querySelectorAll('[data-page]');

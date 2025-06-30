@@ -2,6 +2,61 @@
 
 const translations = {
     'es': {
+        // Textos de soporte
+        'soporte_hero_titulo': 'Soporte Técnico',
+        'soporte_hero_subtitulo': 'Estamos para ayudarte',
+        'soporte_24_7_titulo': 'Soporte 24/7',
+        'soporte_24_7_desc': 'Nuestro equipo está disponible las 24 horas del día, los 7 días de la semana para resolver cualquier incidencia.',
+        'soporte_conectividad_titulo': 'Conectividad Estable',
+        'soporte_conectividad_desc': 'Garantizamos una conectividad estable y confiable, con monitoreo constante y mantenimiento preventivo.',
+        'soporte_soluciones_titulo': 'Soluciones Efectivas',
+        'soporte_soluciones_desc': 'Brindamos soluciones rápidas y efectivas, adaptadas a las necesidades específicas de cada cliente.',
+        'soporte_cobertura_titulo': 'Cobertura Remota',
+        'soporte_cobertura_desc': 'Llegamos a los lugares más remotos para asegurar la continuidad de tus operaciones.',
+        
+        // Textos de servicios
+        'servicios_hero_titulo': 'Servicios',
+        'servicios_hero_subtitulo': 'Conectividad / Monitoreo / Gestión IT',
+        'servicios_intro': 'Ofrecemos conectividad completamente autónoma, así como el diseño, fabricación y provisión de equipos para monitoreo ambiental, meteorológico y de seguridad.',
+        'servicios_conectividad_titulo': 'Conectividad',
+        'servicios_conectividad_desc': 'Brindamos soluciones de conectividad estables y confiables para sitios remotos, adaptadas a las necesidades específicas de cada proyecto.',
+        'servicios_conectividad_detalle': 'Proveemos soluciones de conectividad diseñadas para entornos de alta montaña, asegurando acceso a internet y comunicaciones estables en condiciones extremas, utilizando equipamiento completamente autosuficiente, enlaces satelitales y redes inalámbricas de largo alcance.',
+        'servicios_monitoreo_titulo': 'Monitoreo',
+        'servicios_monitoreo_desc': 'Implementamos sistemas de monitoreo integral para supervisar y controlar operaciones críticas en tiempo real.',
+        'servicios_monitoreo_detalle_1': 'Nos especializamos en el control de activos mediante cámaras fijas y sistemas avanzados de monitoreo remoto, diseñados para reducir riesgos y optimizar operaciones en tiempo real.',
+        'servicios_monitoreo_detalle_2': 'Visual: Supervisamos áreas críticas en tiempo real con cámaras de última generación, sistemas de alta complejidad, grabación en la nube y administración remota. Todo funciona de manera autónoma, alimentado por paneles solares y con almacenamiento seguro.',
+        'servicios_monitoreo_detalle_3': 'Meteorológico: Instalamos estaciones con sistemas de alerta temprana para monitorear el clima en zonas remotas, con datos accesibles en línea.',
+        'servicios_gestion_titulo': 'Gestión IT',
+        'servicios_gestion_desc': 'Ofrecemos servicios de gestión IT completos, incluyendo mantenimiento, soporte técnico y optimización de infraestructura.',
+        'servicios_gestion_detalle_1': 'Redes: Gestión de redes seguras y de alto rendimiento en entornos extremos, con mantenimiento preventivo.',
+        'servicios_gestion_detalle_2': 'Gestión de Servicios: Administración de IT profesional para garantizar la continuidad operativa de sus sistemas críticos.',
+        'servicios_gestion_detalle_3': 'Nuestro equipo de expertos proporciona soporte técnico 24/7.',
+        
+        // Textos de nosotros
+        'nosotros_hero_titulo': 'Conectividad en altura, expertos en montaña',
+        'nosotros_cordillera_titulo': 'Desde la Cordillera, conectando lo inalcanzable',
+        'nosotros_cordillera_desc': 'Nacidos en Barreal, Calingasta, conocemos la vida en la cordillera, donde los desafíos superan los 5.000 metros. Esta experiencia nos impulsa a brindar soluciones rápidas y eficientes, adaptadas a terrenos extremos. Con sedes en San Juan Capital, Calingasta e Iglesia, llegamos a los lugares más remotos de Argentina y la región, ofreciendo conectividad, monitoreo y tecnología para minería, energía e industria.',
+        'nosotros_rse_titulo': 'RSE',
+        'nosotros_rse_subtitulo': 'Nuestros proyectos con la comunidad',
+        'nosotros_relevamientos_desc': 'Realizamos relevamientos de terrenos, procesando datos para generar una base de información estratégica que ingenieros y especialistas puedan utilizar en sus análisis y en la toma de decisiones clave en cada fase del proyecto.',
+        
+        // Textos de geoespacial
+        'geo_titulo': 'Análisis Geoespacial',
+        'geo_fotogrametria_titulo': 'Fotogrametría',
+        'geo_fotogrametria_desc': 'Realizamos levantamientos topográficos mediante drones, generando mapas 3D y fotografías aéreas georeferenciadas de alta precisión, ideales para proyectos de construcción, minería y planificación territorial.',
+        'geo_termografia_titulo': 'Termografía',
+        'geo_termografia_desc': 'Utilizamos drones equipados con cámaras térmicas para detectar anomalías de temperatura en infraestructuras críticas, facilitando tareas de mantenimiento preventivo y diagnóstico energético.',
+        'geo_magnetometria_titulo': 'Magnetometría',
+        'geo_magnetometria_desc': 'Magnetometría aérea mediante drones para exploraciones geofísicas y detección de recursos.',
+        'geo_batimetria_titulo': 'Batimetría',
+        'geo_batimetria_desc': 'Llevamos a cabo estudios batimétricos con drones, recolectando datos precisos sobre el perfil del fondo y la profundidad de lagos y embalses en zonas montañosas.',
+        'geo_lidar_titulo': 'LiDAR',
+        'geo_lidar_desc': 'Utilizamos tecnología LiDAR con drones para generar modelos de alta resolución del terreno en zonas de alta montaña, permitiendo un análisis preciso del relieve y la vegetación.',
+        'geo_control_titulo': 'Control de Activos',
+        'geo_control_desc': 'Monitoreo y control de activos en terreno mediante drones, permitiendo una gestión eficiente y segura de recursos e infraestructura.',
+        'geo_procesamiento_titulo': 'Procesamiento de Datos',
+        'geo_procesamiento_desc': 'Procesamiento avanzado de datos geoespaciales para generar información valiosa que facilite la toma de decisiones.',
+
         // Textos del header/navegación
         'nav_clientes_titulo': 'Nuestros Clientes',
         'nav_nosotros': 'Nosotros',
@@ -101,6 +156,61 @@ const translations = {
         'ui_siguiente': '❯'
     },
     'en': {
+        // Support texts
+        'soporte_hero_titulo': 'Technical Support',
+        'soporte_hero_subtitulo': 'We are here to help',
+        'soporte_24_7_titulo': '24/7 Support',
+        'soporte_24_7_desc': 'Our team is available 24 hours a day, 7 days a week to resolve any issues.',
+        'soporte_conectividad_titulo': 'Stable Connectivity',
+        'soporte_conectividad_desc': 'We guarantee stable and reliable connectivity, with constant monitoring and preventive maintenance.',
+        'soporte_soluciones_titulo': 'Effective Solutions',
+        'soporte_soluciones_desc': 'We provide quick and effective solutions, tailored to each client\'s specific needs.',
+        'soporte_cobertura_titulo': 'Remote Coverage',
+        'soporte_cobertura_desc': 'We reach the most remote locations to ensure the continuity of your operations.',
+        
+        // Services texts
+        'servicios_hero_titulo': 'Services',
+        'servicios_hero_subtitulo': 'Connectivity / Monitoring / IT Management',
+        'servicios_intro': 'We offer fully autonomous connectivity, as well as the design, manufacturing, and provision of equipment for environmental, meteorological, and security monitoring.',
+        'servicios_conectividad_titulo': 'Connectivity',
+        'servicios_conectividad_desc': 'We provide stable and reliable connectivity solutions for remote sites, tailored to the specific needs of each project.',
+        'servicios_conectividad_detalle': 'We provide connectivity solutions designed for high mountain environments, ensuring stable internet access and communications in extreme conditions, using fully self-sufficient equipment, satellite links, and long-range wireless networks.',
+        'servicios_monitoreo_titulo': 'Monitoring',
+        'servicios_monitoreo_desc': 'We implement comprehensive monitoring systems to supervise and control critical operations in real-time.',
+        'servicios_monitoreo_detalle_1': 'We specialize in asset control through fixed cameras and advanced remote monitoring systems, designed to reduce risks and optimize operations in real-time.',
+        'servicios_monitoreo_detalle_2': 'Visual: We monitor critical areas in real-time with state-of-the-art cameras, high-complexity systems, cloud recording, and remote administration. Everything works autonomously, powered by solar panels with secure storage.',
+        'servicios_monitoreo_detalle_3': 'Meteorological: We install stations with early warning systems to monitor weather in remote areas, with online accessible data.',
+        'servicios_gestion_titulo': 'IT Management',
+        'servicios_gestion_desc': 'We offer complete IT management services, including maintenance, technical support, and infrastructure optimization.',
+        'servicios_gestion_detalle_1': 'Networks: Management of secure and high-performance networks in extreme environments, with preventive maintenance.',
+        'servicios_gestion_detalle_2': 'Service Management: Professional IT administration to ensure operational continuity of your critical systems.',
+        'servicios_gestion_detalle_3': 'Our team of experts provides 24/7 technical support.',
+        
+        // About Us texts
+        'nosotros_hero_titulo': 'High-altitude Connectivity, Mountain Experts',
+        'nosotros_cordillera_titulo': 'From the Cordillera, Connecting the Unreachable',
+        'nosotros_cordillera_desc': 'Born in Barreal, Calingasta, we know life in the mountains, where challenges exceed 5,000 meters. This experience drives us to provide quick and efficient solutions, adapted to extreme terrains. With offices in San Juan Capital, Calingasta, and Iglesia, we reach the most remote locations in Argentina and the region, offering connectivity, monitoring, and technology for mining, energy, and industry.',
+        'nosotros_rse_titulo': 'CSR',
+        'nosotros_rse_subtitulo': 'Our Community Projects',
+        'nosotros_relevamientos_desc': 'We conduct terrain surveys, processing data to generate a strategic information base that engineers and specialists can use in their analyses and key decision-making at each project phase.',
+        
+        // Geospatial texts
+        'geo_titulo': 'Geospatial Analysis',
+        'geo_fotogrametria_titulo': 'Photogrammetry',
+        'geo_fotogrametria_desc': 'We perform topographic surveys using drones, generating high-precision 3D maps and georeferenced aerial photographs, ideal for construction, mining, and territorial planning projects.',
+        'geo_termografia_titulo': 'Thermography',
+        'geo_termografia_desc': 'We use drones equipped with thermal cameras to detect temperature anomalies in critical infrastructure, facilitating preventive maintenance tasks and energy diagnostics.',
+        'geo_magnetometria_titulo': 'Magnetometry',
+        'geo_magnetometria_desc': 'Aerial magnetometry using drones for geophysical exploration and resource detection.',
+        'geo_batimetria_titulo': 'Bathymetry',
+        'geo_batimetria_desc': 'We conduct bathymetric studies with drones, collecting accurate data on the bottom profile and depth of lakes and reservoirs in mountainous areas.',
+        'geo_lidar_titulo': 'LiDAR',
+        'geo_lidar_desc': 'We use LiDAR technology with drones to generate high-resolution terrain models in high mountain areas, enabling precise analysis of relief and vegetation.',
+        'geo_control_titulo': 'Asset Control',
+        'geo_control_desc': 'Field asset monitoring and control using drones, enabling efficient and secure management of resources and infrastructure.',
+        'geo_procesamiento_titulo': 'Data Processing',
+        'geo_procesamiento_desc': 'Advanced processing of geospatial data to generate valuable information that facilitates decision-making.',
+
         // Header/navigation texts
         'nav_clientes_titulo': 'Our Clients',
         'nav_nosotros': 'About Us',

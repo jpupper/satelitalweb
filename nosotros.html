@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="css/hamburguesa.css" />
     <link rel="stylesheet" href="css/dropdown.css" />
     
-    <script src="js/header.js"></script>
     <script>
       // Prevenir FOUC
       document.documentElement.classList.add('no-fouc');
@@ -27,19 +26,12 @@
      
     <!-- Modificar el h1 en el hero-nosotros para usar spans con clase highlight -->
 <div class="hero-nosotros">
-  <h1><span class="highlight">Conectividad en altura,</span><br> expertos en montaña</h1>
+  <h1><span data-i18n="nosotros_hero_titulo">Conectividad en altura, expertos en montaña</span></h1>
 </div>
   <div class="cordillera"> 
      <div class="cordillera-about-card">
-    <h1 class="cordillera-about-title">Desde la Cordillera, <br> conectando lo inalcanzable</h1>
-    <p class="cordillera-about-description">
-        Nacidos en Barreal, Calingasta, conocemos la vida en la cordillera, donde los 
-        desafíos superan los 5.000 metros. Esta experiencia nos impulsa a brindar 
-        soluciones rápidas y eficientes, adaptadas a terrenos extremos. Con sedes 
-        en San Juan Capital, Calingasta e Iglesia, llegamos a los lugares más 
-        remotos de Argentina y la región, ofreciendo conectividad, monitoreo y 
-        tecnología para minería, energía e industria.
-    </p>
+    <h1 class="cordillera-about-title"><span data-i18n="nosotros_cordillera_titulo">Desde la Cordillera, conectando lo inalcanzable</span></h1>
+    <p class="cordillera-about-description"><span data-i18n="nosotros_cordillera_desc">Nacidos en Barreal, Calingasta, conocemos la vida en la cordillera, donde los desafíos superan los 5.000 metros. Esta experiencia nos impulsa a brindar soluciones rápidas y eficientes, adaptadas a terrenos extremos. Con sedes en San Juan Capital, Calingasta e Iglesia, llegamos a los lugares más remotos de Argentina y la región, ofreciendo conectividad, monitoreo y tecnología para minería, energía e industria.</span></p>
 </div>
 </div>
 
@@ -47,8 +39,8 @@
 
 <!-- Nueva sección RSE -->
 <div class="rse-section">
-  <h1 class="rse-title">RSE</h1>
-  <h2 class="rse-subtitle">Nuestros proyectos con la comunidad</h2>
+  <h1 class="rse-title"><span data-i18n="nosotros_rse_titulo">RSE</span></h1>
+  <h2 class="rse-subtitle"><span data-i18n="nosotros_rse_subtitulo">Nuestros proyectos con la comunidad</span></h2>
   
   <div class="rse-carousel-wrapper">
     <div class="rse-carousel-button rse-carousel-button-prev">❮</div>
@@ -61,7 +53,7 @@
   </div>
 </div>
 <div class="relevamientos-banner">
-  <p>Realizamos <strong>relevamientos de terrenos</strong>, procesando datos para generar una base de información estratégica que ingenieros y especialistas puedan utilizar en sus análisis y en la toma de decisiones clave en cada fase del proyecto.</p>
+  <p><span data-i18n="nosotros_relevamientos_desc">Realizamos relevamientos de terrenos, procesando datos para generar una base de información estratégica que ingenieros y especialistas puedan utilizar en sus análisis y en la toma de decisiones clave en cada fase del proyecto.</span></p>
 </div>
 <div class="video-section">
   <div class="video-grid">
@@ -155,6 +147,8 @@
   
   </div>     
       <!-- Scripts -->
+      <script src="js/translations.js"></script>
+      <script src="js/header.js"></script>
       <script src="js/video.js"></script>
       <script src="js/nosotros.js"></script>
       <script src="js/galeria.js"></script>
@@ -162,6 +156,10 @@
       <script src="js/nav.js"></script>
       <script src="js/mainnav.js"></script>
       <script src="js/footer.js"></script>
+      <script>
+          // Inicializar el sistema de traducción
+          initializeTranslations();
+      </script>
   
       <div class="news-modal">
         <div class="news-modal-content">
