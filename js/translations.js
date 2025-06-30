@@ -5,6 +5,9 @@ const translations = {
         // Textos de soporte
         'soporte_hero_titulo': 'Soporte Técnico',
         'soporte_hero_subtitulo': 'Estamos para ayudarte',
+        'soporte_expertos_titulo': 'Expertos en Alta Montaña',
+        'soporte_asistencia_titulo': 'Asistencia especializada para soluciones de internet satelital',
+        'soporte_garantia_texto': 'Garantizamos conexión estable y eficiente en los entornos más desafiantes con expertos en soluciones rápidas.',
         'soporte_24_7_titulo': 'Soporte 24/7',
         'soporte_24_7_desc': 'Nuestro equipo está disponible las 24 horas del día, los 7 días de la semana para resolver cualquier incidencia.',
         'soporte_conectividad_titulo': 'Conectividad Estable',
@@ -159,6 +162,9 @@ const translations = {
         // Support texts
         'soporte_hero_titulo': 'Technical Support',
         'soporte_hero_subtitulo': 'We are here to help',
+        'soporte_expertos_titulo': 'High Mountain Experts',
+        'soporte_asistencia_titulo': 'Specialized assistance for satellite internet solutions',
+        'soporte_garantia_texto': 'We guarantee stable and efficient connection in the most challenging environments with experts in rapid solutions.',
         'soporte_24_7_titulo': '24/7 Support',
         'soporte_24_7_desc': 'Our team is available 24 hours a day, 7 days a week to resolve any issues.',
         'soporte_conectividad_titulo': 'Stable Connectivity',
