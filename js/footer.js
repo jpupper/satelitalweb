@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Crear el contenedor principal del footer
     const footerHTML = `
         <section id="clients-section" class="clientes-section">
-            <h1><span data-i18n="clientes_titulo">Nuestros Clientes</span></h1>
+            <h1><span data-i18n="nav_clientes_titulo">Nuestros Clientes</span></h1>
             
             <!-- Contenedor para vista desktop -->
             <div class="logos-container desktop-logos">
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 <div class="footer-column">
                     <a href="#contact-section" class="footer-link"><span data-i18n="contacto_trabajo">Trabajá con nosotros</span></a>
-                    <a href="#clients-section" class="footer-link"><span data-i18n="clientes_titulo">Clientes</span></a>
+                    <a href="#clients-section" class="footer-link"><span data-i18n="nav_clientes_titulo">Clientes</span></a>
                 </div>
             </div>
             

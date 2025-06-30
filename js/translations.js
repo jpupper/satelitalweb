@@ -3,6 +3,7 @@
 const translations = {
     'es': {
         // Textos del header/navegación
+        'nav_clientes_titulo': 'Nuestros Clientes',
         'nav_nosotros': 'Nosotros',
         'nav_servicios': 'Servicios',
         'nav_geoespacial': 'Geoespacial',
@@ -101,6 +102,7 @@ const translations = {
     },
     'en': {
         // Header/navigation texts
+        'nav_clientes_titulo': 'Our Clients',
         'nav_nosotros': 'About Us',
         'nav_servicios': 'Services',
         'nav_geoespacial': 'Geospatial',
