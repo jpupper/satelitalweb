@@ -7,6 +7,12 @@ window.updateVisibleItems = function() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Verificar si los elementos necesarios existen
+  const carouselTrack = document.querySelector(".news-carousel-track");
+  if (!carouselTrack) {
+    console.warn("No se encontró el elemento news-carousel-track");
+    return;
+  }
   // Obtener el idioma actual usando la función global
   const currentLang = window.getCurrentLanguage();
 
@@ -122,18 +128,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Inicializar elementos del carrusel después de generar las tarjetas
   window.initCarouselElements = function() {
-    carousel = document.querySelector(".news-carousel-track")
-    items = document.querySelectorAll(".news-card")
-    prevBtn = document.querySelector(".news-carousel-button-prev")
-    nextBtn = document.querySelector(".news-carousel-button-next")
+    try {
+      carousel = document.querySelector(".news-carousel-track")
+      items = document.querySelectorAll(".news-card")
+      prevBtn = document.querySelector(".news-carousel-button-prev")
+      nextBtn = document.querySelector(".news-carousel-button-next")
 
-    // Verificar que todos los elementos necesarios existen
-    if (!carousel || !items.length || !prevBtn || !nextBtn) {
-      console.warn("Algunos elementos del carrusel no se encontraron")
-      return false
+      if (!carousel) throw new Error("No se encontró el elemento carousel")
+      if (!items.length) throw new Error("No se encontraron tarjetas de noticias")
+      if (!prevBtn) throw new Error("No se encontró el botón previo")
+      if (!nextBtn) throw new Error("No se encontró el botón siguiente")
+
+      return true;
+    } catch (error) {
+      console.warn("Error al inicializar el carrusel:", error.message);
+      return false;
     }
-    return true
-  }
+  };
 
   // Variables de control
   let currentIndex = 0
@@ -149,6 +160,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Función para ajustar la altura de las imágenes
   function adjustImageHeights() {
+    if (!items || !items.length) {
+      console.warn("No hay elementos del carrusel para ajustar");
+      return;
+    }
     items.forEach((card) => {
       const content = card.querySelector(".news-card-content")
       const image = card.querySelector(".news-card-image")

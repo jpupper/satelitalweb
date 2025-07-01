@@ -117,68 +117,8 @@
       <div class="news-carousel-button news-carousel-button-prev">❮</div>
       <div class="news-carousel-container">
           <div class="news-carousel-track">
-            <!-- Elemento 1 -->
-            <div class="news-card">
-                <div class="image-wrapper">
-                    <img src="./assets/galeria/mineria.png" alt="Persona con cabra" class="news-card-image">
-                </div>
-                <div class="news-card-content">
-                    <div class="news-card-category">▸ RSE</div>
-                    <h3 class="news-card-title">Mineria<span class="news-card-title-highlight"></span></h3>
-                    <p class="news-card-description">La actividad minera en sigue en expansión con nuevos proyectos en exploración y producción. Ghm, en conjunto con el gobierno provincial, buscan impulsar inversiones y empleo local, priorizando el desarrollo sostenible. Comunidades cercanas siguen de cerca el impacto ambiental y económico de la industria.
-                    <div class="news-card-date">Publicado: 25/02/2025</div>
-                    <a href="#" class="news-button">Ver noticia &gt;</a>
-                </div>
-            </div>
-            
-            <!-- Elemento 2 -->
-            <div class="news-card">
-                <div class="image-wrapper">
-                    <img src="./assets/galeria/alfalfa.png" alt="Vehículo todoterreno" class="news-card-image">
-                </div>
-                <div class="news-card-content">
-                    <div class="news-card-category">▸ SOSTENIBILIDAD</div>
-                    <h3 class="news-card-title">Campo de<span class="news-card-title-highlight"> Alfalfa</span></h3>
-                    <p class="news-card-description">En nuestra empresa, sostenemos un compromiso firme con la sustentabilidad y el cuidado del medio ambiente. Contamos con tres hectáreas principalmente dedicadas al cultivo de alfalfa, además de cultivar especies como orégano y tomillo. </p> 
-                    <p class="news-card-description">Aprovechamos la diversidad natural de nuestros terrenos para optimizar la producción agrícola, promoviendo un equilibrio sostenible que respete y preserve los ecosistemas locales.</p>
-                    <div class="news-card-date">Publicado: 18/02/2025</div>
-                    <a href="#" class="news-button">Ver noticia &gt;</a>
-                </div>
-            </div>
-                   <!-- Elemento 4 -->
-                   <div class="news-card">
-                    <div class="image-wrapper">
-                        <img src="./assets/galeria/3.png" alt="Producto" class="news-card-image">
-                    </div>
-                    <div class="news-card-content">
-                        <div class="news-card-category">▸ PRODUCTOS</div>
-                        <h3 class="news-card-title">Quesos <span class="news-card-title-highlight">Yla</span></h3>
-                        <p class="news-card-description">Ghm Satelital realiza donaciones periódicas de su producción de alfalfa para la alimentación del ganado caprino, contribuyendo al desarrollo de la industria caprina en la región. Esta iniciativa no solo apoya a los productores locales, sino que también impulsa el crecimiento de empresas como Quesos Ylla, fortaleciendo así la economía del departamento.
-                        </p>
-                        <div class="news-card-date">Publicado: 05/02/2025</div>
-                        <a href="#" class="news-button">Ver noticia &gt;</a>
-                    </div>
-                </div>
-            <!-- Elemento 3 -->
-            <div class="news-card">
-                <div class="image-wrapper">
-                    <img src="./assets/galeria/agua.png" alt="Producto" class="news-card-image">
-                </div>
-                <div class="news-card-content">
-                    <div class="news-card-category">▸ SERVICIOS</div>
-                    <h3 class="news-card-title">Laguna <span class="news-card-title-highlight">blanca</span></h3>
-                    <p class="news-card-description">Con el respaldo del gobierno provincial, ghm Satelital ha proyectado un innovador parador en Laguna Blanca, ubicado en la base del Mercedario, en colaboración con la Asociación Ciudad Andina.
-                      
-                      </p>
-                    <div class="news-card-date">Publicado: 10/02/2025</div>
-                    <a href="#" class="news-button">Ver noticia &gt;</a>
-                </div>
-            </div>
-            
-     
-            
-      
-        </div>
+            <!-- Las noticias se cargarán dinámicamente aquí -->
+          </div>
       </div>
         
         <div class="news-carousel-button news-carousel-button-next">❯</div>
@@ -186,11 +126,27 @@
   </div>
   
   </div>
+
+<!-- Modal para noticias -->
+<div class="news-modal">
+  <div class="news-modal-content">
+    <button class="news-modal-close" data-i18n="ui_cerrar">×</button>
+    <div class="news-modal-category"></div>
+    <h2 class="news-modal-title"></h2>
+    <div class="news-modal-text-container">
+      <p class="news-modal-text news-modal-text-left"></p>
+      <p class="news-modal-text news-modal-text-right"></p>
+    </div>
+    <img src="/placeholder.svg" alt="Detailed view" class="news-modal-image">
+  </div>
+</div>
+
 <script src="js/translations.js"></script>
+<script src="js/script.js"></script>
+<script src="js/galeria.js"></script>
 <script src="js/header.js"></script>
 <script src="js/video.js"></script>
 <script src="js/geoespacial.js"></script>
-<script src="js/galeria.js"></script>
 <script src="js/nav.js"></script>
 <script src="js/mainnav.js"></script>
 <script src="js/footer.js"></script>
