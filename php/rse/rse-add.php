@@ -5,7 +5,7 @@ $conexion = getDBConnection();
 // Definir variables para el formulario
 $image = $title = $popupImage = "";
 $error = "";
-$uploadDir = "./assets/rse/";
+$uploadDir = "../../assets/rse/";
 
 // Procesar el formulario cuando se envía
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

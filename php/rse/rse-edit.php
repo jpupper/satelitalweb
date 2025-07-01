@@ -10,7 +10,7 @@ if (!isset($_GET['id']) || empty($_GET['id'])) {
 
 $id = intval($_GET['id']);
 $error = "";
-$uploadDir = "./assets/rse/";
+$uploadDir = "../../assets/rse/";
 
 // Obtener los datos del proyecto
 $stmt = $conexion->prepare("SELECT * FROM rse_projects WHERE id = ?");

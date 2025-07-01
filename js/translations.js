@@ -156,7 +156,8 @@ const translations = {
         // Elementos de UI
         'ui_cerrar': '×',
         'ui_anterior': '❮',
-        'ui_siguiente': '❯'
+        'ui_siguiente': '❯',
+        'rse_ampliar': 'Ampliar'
     },
     'en': {
         // Support texts
@@ -313,7 +314,8 @@ const translations = {
         // UI elements
         'ui_cerrar': '×',
         'ui_anterior': '❮',
-        'ui_siguiente': '❯'
+        'ui_siguiente': '❯',
+        'rse_ampliar': 'Expand'
     }
 };
 
@@ -459,6 +461,11 @@ function switchLanguage(language) {
             const carouselTrack = document.querySelector(".news-carousel-track");
             carouselTrack.innerHTML = `<div class='news-card'><div class='news-card-content'><p>${language === 'es' ? 'Error al cargar las noticias.' : 'Error loading news.'}</p></div></div>`;
         });
+        
+    // Recargar los proyectos RSE con el nuevo idioma
+    if (typeof window.loadRSEProjects === 'function') {
+        window.loadRSEProjects(language);
+    }
 }
 
 // Inicializar el sistema de traducciones
