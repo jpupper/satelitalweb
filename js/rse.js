@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Cargar proyectos RSE desde la API
-  fetch("/satelital/php/rse/rse-api.php")
+  // Obtener el idioma actual del sitio
+  const currentLang = document.documentElement.lang || 'es';
+
+  // Cargar proyectos RSE desde la API con el idioma actual
+  fetch(`/satelital/php/rse/rse-api.php?lang=${currentLang}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error al cargar los proyectos RSE")

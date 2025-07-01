@@ -1,4 +1,5 @@
-function updateVisibleItems() {
+// Hacer las funciones accesibles globalmente
+window.updateVisibleItems = function() {
   let visibleCount = 4
   if (window.innerWidth <= 768) visibleCount = 2
   if (window.innerWidth <= 480) visibleCount = 1
@@ -6,8 +7,11 @@ function updateVisibleItems() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Cargar noticias desde la API
-  fetch("/satelital/php/news/news-api.php")
+  // Obtener el idioma actual usando la función global
+  const currentLang = window.getCurrentLanguage();
+
+  // Cargar noticias desde la API con el idioma actual
+  fetch(`/satelital/php/news/news-api.php?lang=${currentLang}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error al cargar las noticias")
@@ -24,11 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       // Generar las tarjetas con los datos recibidos
-      generateNewsCards(newsItems)
+      window.generateNewsCards(newsItems)
 
       // Inicializar el carrusel después de generar las tarjetas
-      if (initCarouselElements()) {
-        updateCarousel()
+      if (window.initCarouselElements()) {
+        window.updateCarousel()
       }
     })
     .catch((error) => {
@@ -39,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
   // Generar dinámicamente las tarjetas de noticias
-  function generateNewsCards(newsItems) {
+  window.generateNewsCards = function(newsItems) {
     const carouselTrack = document.querySelector(".news-carousel-track")
 
     // Limpiar el contenedor antes de agregar nuevas tarjetas
@@ -60,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <h3 class="news-card-title">${item.titleBlack}<span class="news-card-title-highlight">${item.titleGreen ? " " + item.titleGreen : ""}</span></h3>
           <p class="news-card-description">${item.description}</p>
           <div class="news-card-date">Publicado: ${item.formattedDate}</div>
-          <a href="#" class="news-button">Ver noticia &gt;</a>
+          <a href="#" class="news-button">${getCurrentLanguage() === 'es' ? 'Ver noticia' : 'View news'} &gt;</a>
         </div>
       `
 
@@ -68,11 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     // Agregar eventos a los botones después de generar las tarjetas
-    setupNewsButtons(newsItems)
+    window.setupNewsButtons(newsItems)
   }
 
   // Configurar los botones de "Ver noticia"
-  function setupNewsButtons(newsItems) {
+  window.setupNewsButtons = function(newsItems) {
     const newsButtons = document.querySelectorAll(".news-button")
     const modal = document.querySelector(".news-modal")
     const modalClose = document.querySelector(".news-modal-close")
@@ -91,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelector(".news-modal-title").innerHTML = `${newsItem.titleBlack}<br>${newsItem.titleGreen}`
         document.querySelector(".news-modal-text-left").textContent = newsItem.modalTextLeft
         document.querySelector(".news-modal-text-right").textContent = newsItem.modalTextRight
-        document.querySelector(".news-modal-image").src = newsItem.modalImage
+        document.querySelector(".news-modal-image").src = newsItem.image
         document.querySelector(".news-modal-image").alt = `${newsItem.titleBlack} ${newsItem.titleGreen}`
 
         // Mostrar modal
@@ -117,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let carousel, items, prevBtn, nextBtn
 
   // Inicializar elementos del carrusel después de generar las tarjetas
-  function initCarouselElements() {
+  window.initCarouselElements = function() {
     carousel = document.querySelector(".news-carousel-track")
     items = document.querySelectorAll(".news-card")
     prevBtn = document.querySelector(".news-carousel-button-prev")
@@ -188,8 +192,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // Función para actualizar el número de elementos visibles según el ancho de la pantalla
 
   // Función para actualizar la posición del carrusel
-  function updateCarousel() {
-    const visibleCount = updateVisibleItems()
+  window.updateCarousel = function() {
+    const visibleCount = window.updateVisibleItems()
     const maxIdx = items.length - visibleCount
 
     // Asegurarse de que el índice no exceda el máximo
@@ -210,17 +214,17 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".news-carousel-button-prev").addEventListener("click", () => {
     if (currentIndex > 0) {
       currentIndex--
-      updateCarousel()
+      window.updateCarousel()
     }
   })
 
   document.querySelector(".news-carousel-button-next").addEventListener("click", () => {
-    const visibleCount = updateVisibleItems()
+    const visibleCount = window.updateVisibleItems()
     const maxIdx = items.length - visibleCount
 
     if (currentIndex < maxIdx) {
       currentIndex++
-      updateCarousel()
+      window.updateCarousel()
     }
   })
 
@@ -229,8 +233,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer)
     resizeTimer = setTimeout(() => {
-      if (initCarouselElements()) {
-        updateCarousel()
+      if (window.initCarouselElements()) {
+        window.updateCarousel()
       }
     }, 250)
   })

@@ -16,7 +16,7 @@ if (isset($_GET['toggle']) && isset($_GET['id'])) {
 }
 
 // Obtener todas las noticias
-$sql = "SELECT id, image, category, titleBlack, titleGreen, date, active FROM noticias ORDER BY date DESC";
+$sql = "SELECT id, image, category, titleBlack, titleGreen, date, active, language FROM noticias ORDER BY date DESC";
 $resultado = $conexion->query($sql);
 ?>
 
@@ -93,6 +93,7 @@ $resultado = $conexion->query($sql);
                         <th>Título</th>
                         <th>Fecha</th>
                         <th>Estado</th>
+                        <th>Idioma</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -122,6 +123,9 @@ $resultado = $conexion->query($sql);
                                     <?php endif; ?>
                                 </td>
                                 <td>
+                                    <?php echo $fila['language'] === 'es' ? 'Español' : 'English'; ?>
+                                </td>
+                                <td>
                                     <div class="btn-group">
                                         <a href="news-edit.php?id=<?php echo $fila['id']; ?>" class="btn btn-sm btn-warning">
                                             <i class="bi bi-pencil"></i> Editar
@@ -139,7 +143,7 @@ $resultado = $conexion->query($sql);
                         <?php endwhile; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="7" class="text-center">No hay noticias disponibles. <a href="news-add.php">Agregar una nueva</a>.</td>
+                            <td colspan="8" class="text-center">No hay noticias disponibles. <a href="news-add.php">Agregar una nueva</a>.</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>

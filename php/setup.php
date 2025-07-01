@@ -2,25 +2,57 @@
 require_once 'dbconfig.php';
 $conexion = getDBConnection();
 
-// Crear tabla de noticias si no existe
+// Crear la tabla noticias si no existe
 $sql = "CREATE TABLE IF NOT EXISTS noticias (
-    id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     image VARCHAR(255) NOT NULL,
     category VARCHAR(100) NOT NULL,
-    titleBlack VARCHAR(100) NOT NULL,
-    titleGreen VARCHAR(100),
+    titleBlack VARCHAR(255) NOT NULL,
+    titleGreen VARCHAR(255),
     description TEXT NOT NULL,
-    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     modalImage VARCHAR(255) NOT NULL,
     modalTextLeft TEXT NOT NULL,
     modalTextRight TEXT NOT NULL,
-    active TINYINT(1) DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    active BOOLEAN DEFAULT TRUE
+)";
 
 if ($conexion->query($sql) === TRUE) {
     echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
             Tabla 'noticias' creada correctamente o ya existía.
           </div>";
+
+    // Verificar si la columna language existe
+    $result = $conexion->query("SHOW COLUMNS FROM noticias LIKE 'language'");
+    if ($result->num_rows === 0) {
+        // Agregar la columna language si no existe
+        $alterSql = "ALTER TABLE noticias ADD COLUMN language ENUM('es', 'en') NOT NULL DEFAULT 'es'";
+        if ($conexion->query($alterSql) === TRUE) {
+            echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                    Campo language agregado correctamente a la tabla noticias.
+                  </div>";
+
+            // Actualizar registros existentes a español por defecto
+            $updateSql = "UPDATE noticias SET language = 'es' WHERE language IS NULL";
+            if ($conexion->query($updateSql) === TRUE) {
+                echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                        Registros existentes actualizados con idioma español por defecto.
+                      </div>";
+            } else {
+                echo "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                        Error al actualizar registros existentes: " . $conexion->error . "
+                      </div>";
+            }
+        } else {
+            echo "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                    Error al agregar el campo language: " . $conexion->error . "
+                  </div>";
+        }
+    } else {
+        echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                El campo language ya existe en la tabla noticias.
+              </div>";
+    }
 } else {
     echo "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
             Error al crear la tabla: " . $conexion->error . "

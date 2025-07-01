@@ -16,7 +16,7 @@ if (isset($_GET['toggle']) && isset($_GET['id'])) {
 }
 
 // Obtener todos los proyectos RSE
-$sql = "SELECT id, image, title, active FROM rse_projects ORDER BY id DESC";
+$sql = "SELECT id, image, title, active, language FROM rse_projects ORDER BY id DESC";
 $resultado = $conexion->query($sql);
 ?>
 
@@ -90,6 +90,7 @@ $resultado = $conexion->query($sql);
                         <th>ID</th>
                         <th>Imagen</th>
                         <th>Título</th>
+                        <th>Idioma</th>
                         <th>Estado</th>
                         <th>Acciones</th>
                     </tr>
@@ -103,6 +104,7 @@ $resultado = $conexion->query($sql);
                                     <img src="<?php echo $fila['image']; ?>" alt="Miniatura" class="thumbnail">
                                 </td>
                                 <td><?php echo htmlspecialchars($fila['title']); ?></td>
+                                <td><?php echo $fila['language'] === 'es' ? 'Español' : 'English'; ?></td>
                                 <td>
                                     <?php if ($fila['active']): ?>
                                         <span class="badge bg-success">Activo</span>

@@ -318,7 +318,7 @@ const translations = {
 };
 
 // Función para obtener el idioma actual
-function getCurrentLanguage() {
+window.getCurrentLanguage = function() {
     // Primero intentar obtener el idioma desde localStorage
     const savedLanguage = localStorage.getItem('selectedLanguage');
     if (savedLanguage) {
@@ -336,13 +336,13 @@ function getCurrentLanguage() {
 
 // Función para obtener una traducción
 function getTranslation(key) {
-    const language = getCurrentLanguage();
+    const language = window.getCurrentLanguage();
     return translations[language][key] || key;
 }
 
 // Función para actualizar el idioma de todos los textos con atributo data-i18n
 function updatePageLanguage() {
-    const language = getCurrentLanguage();
+    const language = window.getCurrentLanguage();
     applyLanguage(language);
 }
 
@@ -424,6 +424,41 @@ function switchLanguage(language) {
     
     // Aplicar el cambio de idioma inmediatamente
     applyLanguage(language);
+    
+    // Recargar las noticias con el nuevo idioma
+    fetch(`/satelital/php/news/news-api.php?lang=${language}`)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Error al cargar las noticias");
+            }
+            return response.json();
+        })
+        .then((newsItems) => {
+            // Obtener la función generateNewsCards del scope global
+            if (typeof window.generateNewsCards === 'function') {
+                // Si no hay noticias, mostrar un mensaje
+                if (newsItems.length === 0) {
+                    const carouselTrack = document.querySelector(".news-carousel-track");
+                    carouselTrack.innerHTML = `<div class='news-card'><div class='news-card-content'><p>${language === 'es' ? 'No hay noticias disponibles.' : 'No news available.'}</p></div></div>`;
+                    return;
+                }
+
+                // Generar las tarjetas con los datos recibidos
+                window.generateNewsCards(newsItems);
+
+                // Reinicializar el carrusel
+                if (typeof window.initCarouselElements === 'function' && window.updateCarousel) {
+                    if (window.initCarouselElements()) {
+                        window.updateCarousel();
+                    }
+                }
+            }
+        })
+        .catch((error) => {
+            console.error("Error:", error);
+            const carouselTrack = document.querySelector(".news-carousel-track");
+            carouselTrack.innerHTML = `<div class='news-card'><div class='news-card-content'><p>${language === 'es' ? 'Error al cargar las noticias.' : 'Error loading news.'}</p></div></div>`;
+        });
 }
 
 // Inicializar el sistema de traducciones

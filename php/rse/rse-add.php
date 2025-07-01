@@ -53,8 +53,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Si no hay errores, insertar en la base de datos
         if (empty($error)) {
-            $stmt = $conexion->prepare("INSERT INTO rse_projects (image, title, popupImage) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $image, $title, $popupImage);
+            $language = $_POST['language'];
+            $stmt = $conexion->prepare("INSERT INTO rse_projects (image, title, popupImage, language) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("ssss", $image, $title, $popupImage, $language);
             
             if ($stmt->execute()) {
                 // Redireccionar al panel de administración con mensaje de éxito
@@ -129,6 +130,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <img id="popupImagePreview" class="preview-image" src="#" alt="Vista previa">
             </div>
             
+            <div class="form-group">
+                <label for="language" class="form-label">Idioma *</label>
+                <select class="form-control" id="language" name="language" required>
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+
             <div class="form-group mt-4">
                 <button type="submit" class="btn btn-primary">Guardar Proyecto</button>
                 <a href="rse-admin.php" class="btn btn-secondary">Cancelar</a>

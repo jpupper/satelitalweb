@@ -15,6 +15,38 @@ if ($conexion->query($sql) === TRUE) {
     echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
             Tabla 'rse_projects' creada correctamente o ya existía.
           </div>";
+    
+    // Verificar si la columna language existe
+    $result = $conexion->query("SHOW COLUMNS FROM rse_projects LIKE 'language'");
+    if ($result->num_rows === 0) {
+        // Agregar la columna language si no existe
+        $alterSql = "ALTER TABLE rse_projects ADD COLUMN language ENUM('es', 'en') NOT NULL DEFAULT 'es'";
+        if ($conexion->query($alterSql) === TRUE) {
+            echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                    Campo language agregado correctamente a la tabla rse_projects.
+                  </div>";
+            
+            // Actualizar registros existentes a español por defecto
+            $updateSql = "UPDATE rse_projects SET language = 'es' WHERE language IS NULL";
+            if ($conexion->query($updateSql) === TRUE) {
+                echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                        Registros existentes actualizados con idioma español por defecto.
+                      </div>";
+            } else {
+                echo "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                        Error al actualizar registros existentes: " . $conexion->error . "
+                      </div>";
+            }
+        } else {
+            echo "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                    Error al agregar el campo language: " . $conexion->error . "
+                  </div>";
+        }
+    } else {
+        echo "<div style='background-color: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
+                El campo language ya existe en la tabla rse_projects.
+              </div>";
+    }
 } else {
     echo "<div style='background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;'>
             Error al crear la tabla: " . $conexion->error . "

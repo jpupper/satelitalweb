@@ -6,9 +6,15 @@ $conexion = getDBConnection();
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-// Obtener noticias activas
-$sql = "SELECT * FROM noticias WHERE active = 1 ORDER BY date DESC";
-$resultado = $conexion->query($sql);
+// Obtener el idioma de la consulta, por defecto español
+$language = isset($_GET['lang']) ? $_GET['lang'] : 'es';
+
+// Obtener noticias activas del idioma especificado
+$sql = "SELECT * FROM noticias WHERE active = 1 AND language = ? ORDER BY date DESC";
+$stmt = $conexion->prepare($sql);
+$stmt->bind_param('s', $language);
+$stmt->execute();
+$resultado = $stmt->get_result();
 
 $noticias = [];
 

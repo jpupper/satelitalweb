@@ -5,7 +5,7 @@ $conexion = getDBConnection();
 // Definir variables para el formulario
 $image = $category = $titleBlack = $titleGreen = $description = $modalImage = $modalTextLeft = $modalTextRight = "";
 $error = "";
-$uploadDir = "./assets/galeria/";
+$uploadDir = "../../assets/galeria/";
 
 // Procesar el formulario cuando se envía
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // Subir la imagen
             if (move_uploaded_file($_FILES['image']['tmp_name'], $targetFilePath)) {
-                $image = $targetFilePath;
+                $image = 'assets/galeria/' . $fileName;
             } else {
                 $error = "Hubo un error al subir la imagen principal.";
             }
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             // Subir la imagen
             if (move_uploaded_file($_FILES['modalImage']['tmp_name'], $targetFilePath)) {
-                $modalImage = $targetFilePath;
+                $modalImage = 'assets/galeria/' . $fileName;
             } else {
                 $error = "Hubo un error al subir la imagen del modal.";
             }
@@ -58,8 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Si no hay errores, insertar en la base de datos
         if (empty($error)) {
-            $stmt = $conexion->prepare("INSERT INTO noticias (image, category, titleBlack, titleGreen, description, modalImage, modalTextLeft, modalTextRight) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssssss", $image, $category, $titleBlack, $titleGreen, $description, $modalImage, $modalTextLeft, $modalTextRight);
+            $language = $_POST['language'];
+            $stmt = $conexion->prepare("INSERT INTO noticias (image, category, titleBlack, titleGreen, description, modalImage, modalTextLeft, modalTextRight, language) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssssssss", $image, $category, $titleBlack, $titleGreen, $description, $modalImage, $modalTextLeft, $modalTextRight, $language);
             
             if ($stmt->execute()) {
                 // Redireccionar al panel de administración con mensaje de éxito
@@ -175,6 +176,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
             </div>
             
+            <div class="form-group">
+                <label for="language" class="form-label">Idioma *</label>
+                <select class="form-control" id="language" name="language" required>
+                    <option value="es">Español</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+
             <div class="form-group mt-4">
                 <button type="submit" class="btn btn-primary">Guardar Noticia</button>
                 <a href="admin.php" class="btn btn-secondary">Cancelar</a>

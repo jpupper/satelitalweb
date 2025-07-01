@@ -72,8 +72,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         // Si no hay errores, actualizar en la base de datos
         if (empty($error)) {
-            $stmt = $conexion->prepare("UPDATE rse_projects SET image = ?, title = ?, popupImage = ? WHERE id = ?");
-            $stmt->bind_param("sssi", $image, $title, $popupImage, $id);
+            $language = $_POST['language'];
+            $stmt = $conexion->prepare("UPDATE rse_projects SET image = ?, title = ?, popupImage = ?, language = ? WHERE id = ?");
+            $stmt->bind_param("ssssi", $image, $title, $popupImage, $language, $id);
             
             if ($stmt->execute()) {
                 // Redireccionar al panel de administración con mensaje de éxito
@@ -159,6 +160,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <small class="form-text text-muted">Deja este campo vacío si no deseas cambiar la imagen.</small>
             </div>
             
+            <div class="form-group">
+                <label for="language" class="form-label">Idioma *</label>
+                <select class="form-control" id="language" name="language" required>
+                    <option value="es" <?php echo $proyecto['language'] === 'es' ? 'selected' : ''; ?>>Español</option>
+                    <option value="en" <?php echo $proyecto['language'] === 'en' ? 'selected' : ''; ?>>English</option>
+                </select>
+            </div>
+
             <div class="form-group mt-4">
                 <button type="submit" class="btn btn-primary">Actualizar Proyecto</button>
                 <a href="rse-admin.php" class="btn btn-secondary">Cancelar</a>
