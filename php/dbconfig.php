@@ -1,22 +1,26 @@
 <?php
-// Configuración de la base de datos
+// Configuración de la base de datos para producción
+define('DB_HOST', 'localhost');
+define('DB_USER', 'arsatelitalghm_ghm');
+define('DB_PASS', 'vivajeyder2025+');
+define('DB_NAME', 'arsatelitalghm_bd');
+
+// Credenciales locales (comentadas)
+/*
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME','ghmsatelital');
+*/
 
-
-// Conexión a la base de datos
-/*define('DB_HOST', 'localhost');
+// Credenciales alternativas (comentadas)
+/*
+define('DB_HOST', 'localhost');
 define('DB_USER', 'c1700065_ghm');
 define('DB_PASS', 'LUpupe42su');
 define('DB_NAME', 'c1700065_ghm');
 */
-/*define('DB_HOST', 'localhost');
-define('DB_USER', 'arsatelitalghm_ghm');
-define('DB_PASS', 'vivajeyder2025+');
-define('DB_NAME', 'arsatelitalghm_bd');
-*/
+
 
 // Función para obtener la conexión
 function getDBConnection() {

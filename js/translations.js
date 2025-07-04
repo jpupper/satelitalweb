@@ -350,12 +350,15 @@ function updatePageLanguage() {
 
 // Función para aplicar un idioma específico a toda la página
 function applyLanguage(language) {
+    if (!translations[language]) {
+        console.error('Language not found:', language);
+        return;
+    }
     // Actualizar el atributo lang del HTML
     document.documentElement.setAttribute('lang', language);
     
     // Actualizar todos los elementos con atributo data-i18n
     const elements = document.querySelectorAll('[data-i18n]');
-    
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (key) {
