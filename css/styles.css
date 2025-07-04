@@ -117,16 +117,25 @@ body {
 /* Navbar principal */
 nav {
   background-color: #181818;
-  padding: 1rem;
-  display: flex;
+  padding: 0;
   top: 40px;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row-reverse;
   position: fixed;
   width: 100%;
   z-index: 1000;
   transition: top 0.3s ease;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 10rem;
+  width: 100%;
+}
+
+.desktop-logo {
+  height: 25px;
+  width: auto;
 }
 
 nav.at-top {
@@ -134,7 +143,6 @@ nav.at-top {
 }
 
 .nav-links {
-  padding-right: 10rem;
   display: flex;
   gap: 3rem;
 }

@@ -24,25 +24,33 @@ function createHeader() {
         </div>
 
         <nav id="main-nav">
-            <div class="nav-links">
-                <a href="nosotros.html" class="nav-link">
-                    <span data-i18n="nav_nosotros">Nosotros</span>
-                </a>
-                <a href="servicios.html" class="nav-link">
-                    <span data-i18n="nav_servicios">Servicios</span>
-                </a>
-                <a href="geoespacial.html" class="nav-link">
-                    <span data-i18n="nav_geoespacial">Geoespacial</span>
-                </a>
-                <a href="soporte.html" class="nav-link">
-                    <span data-i18n="nav_soporte">Soporte Técnico</span>
-                </a>
-            </div>
-            <button class="mobile-menu-button">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-container">
+                <div class="nav-left">
+                    <a href="index.html" class="nav-logo">
+                        <img src="assets/nav/logoghm.png" alt="Logo GHM" class="desktop-logo">
+                    </a>
+                </div>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="nosotros.html" class="nav-link">
+                            <span data-i18n="nav_nosotros">Nosotros</span>
+                        </a>
+                        <a href="servicios.html" class="nav-link">
+                            <span data-i18n="nav_servicios">Servicios</span>
+                        </a>
+                        <a href="geoespacial.html" class="nav-link">
+                            <span data-i18n="nav_geoespacial">Geoespacial</span>
+                        </a>
+                        <a href="soporte.html" class="nav-link">
+                            <span data-i18n="nav_soporte">Soporte Técnico</span>
+                        </a>
+                    </div>
+                    <button class="mobile-menu-button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
         </nav>
 
 
