@@ -1,5 +1,9 @@
-// Variables del carrusel
-let carousel, items, prevBtn, nextBtn, currentIndex = 0;
+// Variables del carrusel RSE
+let rseCarousel = null;
+let rseItems = [];
+let rsePrevBtn = null;
+let rseNextBtn = null;
+let rseCurrentIndex = 0;
 
 // Generar dinámicamente las tarjetas de proyectos RSE
 window.generateRSECards = function(rseItems) {
@@ -35,28 +39,57 @@ window.loadRSEProjects = function(language) {
   const currentLang = language || window.getCurrentLanguage();
 
   // Cargar proyectos RSE desde la API con el idioma actual
-  fetch(`/satelital/php/rse/rse-api.php?lang=${currentLang}`)
-    .then((response) => {
+  fetch(`php/rse/rse-api.php?lang=${currentLang}`)
+    .then(async (response) => {
       if (!response.ok) {
-        throw new Error("Error al cargar los proyectos RSE")
+        const errorText = await response.text();
+        console.error('Error response:', errorText);
+        throw new Error(`Error al cargar los proyectos RSE: ${response.status}`);
       }
-      return response.json()
+      const data = await response.json();
+      console.log('Datos recibidos:', data); // Para debug
+      return data;
     })
     .then((rseItems) => {
+      // Verificar que rseItems sea un array válido
+      if (!Array.isArray(rseItems)) {
+        console.error('Respuesta inválida:', rseItems);
+        throw new Error('La respuesta no es un array válido');
+      }
+
       // Si no hay proyectos, mostrar un mensaje
       if (rseItems.length === 0) {
-        const carouselTrack = document.querySelector(".rse-carousel-track")
-        carouselTrack.innerHTML = `<div class='rse-card'><p>${currentLang === 'es' ? 'No hay proyectos disponibles.' : 'No projects available.'}</p></div>`
-        return
+        const carouselTrack = document.querySelector(".rse-carousel-track");
+        if (carouselTrack) {
+          carouselTrack.innerHTML = `<div class='rse-card'><p>${currentLang === 'es' ? 'No hay proyectos disponibles.' : 'No projects available.'}</p></div>`;
+        }
+        return;
       }
 
       // Generar las tarjetas con los datos recibidos
       window.generateRSECards(rseItems)
 
-      // Inicializar el carrusel después de generar las tarjetas
-      if (window.initCarouselElements()) {
-        window.updateCarousel()
-      }
+      // Intentar inicializar el carrusel varias veces
+      let attempts = 0;
+      const maxAttempts = 5;
+      const initializeCarousel = () => {
+        if (window.initRSECarousel()) {
+          setupRSECarouselListeners()
+          window.updateRSECarousel()
+          console.log('Carrusel inicializado exitosamente');
+        } else {
+          attempts++;
+          if (attempts < maxAttempts) {
+            console.log(`Intento ${attempts} de ${maxAttempts} para inicializar el carrusel...`);
+            setTimeout(initializeCarousel, 200);
+          } else {
+            console.error('No se pudo inicializar el carrusel después de varios intentos');
+          }
+        }
+      };
+      
+      // Comenzar los intentos de inicialización
+      setTimeout(initializeCarousel, 200);
     })
     .catch((error) => {
       console.error("Error:", error)
@@ -81,8 +114,13 @@ function setupRSEButtons(rseItems) {
       const rseItem = rseItems[rseIndex]
 
       // Actualizar el contenido del modal con los datos del proyecto
-      document.querySelector(".rse-modal-image").src = rseItem.popupImage
-      document.querySelector(".rse-modal-image").alt = rseItem.title
+      const modalImage = document.querySelector(".rse-modal-image")
+      if (rseItem.popupImage) {
+        modalImage.src = rseItem.popupImage
+      } else {
+        modalImage.src = rseItem.image  // Si no hay popupImage, usar la imagen principal
+      }
+      modalImage.alt = rseItem.title
 
       // Mostrar modal
       modal.style.display = "flex"
@@ -113,80 +151,126 @@ function setupRSEButtons(rseItems) {
 }
 
 // Inicializar elementos del carrusel después de generar las tarjetas
-window.initCarouselElements = function() {
-  carousel = document.querySelector(".rse-carousel-track")
-  items = document.querySelectorAll(".rse-card")
-  prevBtn = document.querySelector(".rse-carousel-button-prev")
-  nextBtn = document.querySelector(".rse-carousel-button-next")
+window.initRSECarousel = function() {
+  try {
+    rseCarousel = document.querySelector(".rse-carousel-track")
+    if (!rseCarousel) {
+      console.error("No se encontró el elemento .rse-carousel-track")
+      return false
+    }
 
-  // Verificar que todos los elementos necesarios existen
-  if (!carousel || !items.length || !prevBtn || !nextBtn) {
-    console.warn("Algunos elementos del carrusel no se encontraron")
+    rseItems = document.querySelectorAll(".rse-card")
+    if (!rseItems || rseItems.length === 0) {
+      console.error("No se encontraron elementos .rse-card")
+      return false
+    }
+
+    rsePrevBtn = document.querySelector(".rse-carousel-button-prev")
+    if (!rsePrevBtn) {
+      console.error("No se encontró el botón previo del carrusel")
+      return false
+    }
+
+    rseNextBtn = document.querySelector(".rse-carousel-button-next")
+    if (!rseNextBtn) {
+      console.error("No se encontró el botón siguiente del carrusel")
+      return false
+    }
+
+    console.log('Carrusel inicializado con éxito:', {
+      'Número de items': rseItems.length,
+      'Carrusel encontrado': !!rseCarousel,
+      'Botones encontrados': !!(rsePrevBtn && rseNextBtn)
+    })
+
+    return true
+  } catch (error) {
+    console.error('Error al inicializar el carrusel:', error)
     return false
   }
-  return true
 }
 
-// Función para obtener el ancho del item incluyendo márgenes
-function getItemWidth() {
-  const item = items[0]
-  const style = window.getComputedStyle(item)
-  const marginLeft = Number.parseFloat(style.marginLeft)
-  const marginRight = Number.parseFloat(style.marginRight)
-  return item.offsetWidth + marginLeft + marginRight
+// Función para obtener el ancho del item incluyendo margen
+function getRSEItemWidth() {
+  const container = document.querySelector('.rse-carousel-container');
+  if (!container) return 0;
+  
+  const containerWidth = container.offsetWidth;
+  const visibleCount = updateRSEVisibleItems();
+  
+  // Usar porcentajes fijos como en CSS
+  if (visibleCount === 3) return containerWidth * 0.345; // 31% + 3.5% margen
+  if (visibleCount === 2) return containerWidth * 0.52; // 48% + 4% margen
+  return containerWidth; // 100% para móvil
 }
 
 // Función para actualizar el número de elementos visibles según el ancho de la pantalla
-function updateVisibleItems() {
-  let visibleCount = 3
-  if (window.innerWidth <= 768) visibleCount = 2
-  if (window.innerWidth <= 480) visibleCount = 1
-  return visibleCount
+window.updateRSEVisibleItems = function() {
+  let visibleCount = 3;
+  if (window.innerWidth <= 768) visibleCount = 2;
+  if (window.innerWidth <= 480) visibleCount = 1;
+  return visibleCount;
 }
 
 // Función para actualizar la posición del carrusel
-window.updateCarousel = function() {
-  const visibleCount = updateVisibleItems()
-  const maxIdx = Math.max(0, items.length - visibleCount)
+window.updateRSECarousel = function() {
+  const visibleCount = updateRSEVisibleItems();
+  const maxIdx = Math.max(0, rseItems.length - visibleCount);
 
   // Asegurarse de que el índice no exceda el máximo
-  if (currentIndex > maxIdx) currentIndex = maxIdx
+  if (rseCurrentIndex > maxIdx) rseCurrentIndex = maxIdx;
+  if (rseCurrentIndex < 0) rseCurrentIndex = 0;
 
-  const offset = -currentIndex * getItemWidth()
-  carousel.style.transform = `translateX(${offset}px)`
+  // Calcular el desplazamiento
+  const itemWidth = getRSEItemWidth();
+  const offset = -rseCurrentIndex * itemWidth;
+  
+  // Aplicar la transformación
+  const track = document.querySelector('.rse-carousel-track');
+  if (track) {
+    track.style.transform = `translateX(${offset}px)`;
+  }
 
-  // Mostrar/ocultar botones de navegación según sea necesario
-  prevBtn.style.display = currentIndex <= 0 ? "none" : "flex"
-  nextBtn.style.display = currentIndex >= maxIdx ? "none" : "flex"
+  // Mostrar/ocultar botones de navegación
+  if (rsePrevBtn) rsePrevBtn.style.display = rseCurrentIndex <= 0 ? "none" : "flex";
+  if (rseNextBtn) rseNextBtn.style.display = rseCurrentIndex >= maxIdx ? "none" : "flex";
 }
 
 // Función para configurar los event listeners del carrusel
-function setupCarouselListeners() {
-  // Eventos de navegación
-  document.querySelector(".rse-carousel-button-prev").addEventListener("click", () => {
-    if (currentIndex > 0) {
-      currentIndex--
-      window.updateCarousel()
+function setupRSECarouselListeners() {
+  if (!rseCarousel || !rseItems.length || !rsePrevBtn || !rseNextBtn) {
+    console.warn("No se pueden configurar los listeners del carrusel: faltan elementos o no está inicializado")
+    return
+  }
+  
+  // Definir funciones de manejo de eventos
+  function handlePrevClick() {
+    if (rseCurrentIndex > 0) {
+      rseCurrentIndex--
+      window.updateRSECarousel()
     }
-  })
+  }
 
-  document.querySelector(".rse-carousel-button-next").addEventListener("click", () => {
-    const visibleCount = updateVisibleItems()
-    const maxIdx = items.length - visibleCount
-
-    if (currentIndex < maxIdx) {
-      currentIndex++
-      window.updateCarousel()
+  function handleNextClick() {
+    const visibleCount = updateRSEVisibleItems()
+    const maxIdx = rseItems.length - visibleCount
+    if (rseCurrentIndex < maxIdx) {
+      rseCurrentIndex++
+      window.updateRSECarousel()
     }
-  })
+  }
+
+  // Agregar los listeners
+  rsePrevBtn.addEventListener("click", handlePrevClick)
+  rseNextBtn.addEventListener("click", handleNextClick)
 
   // Evento de redimensionamiento de ventana
   let resizeTimer
   window.addEventListener("resize", () => {
     clearTimeout(resizeTimer)
     resizeTimer = setTimeout(() => {
-      if (window.initCarouselElements()) {
-        window.updateCarousel()
+      if (window.initRSECarousel()) {
+        window.updateRSECarousel()
       }
     }, 250)
   })
@@ -195,7 +279,7 @@ function setupCarouselListeners() {
 // Cargar proyectos cuando el DOM esté listo
 document.addEventListener("DOMContentLoaded", () => {
   window.loadRSEProjects()
-  setupCarouselListeners()
+  // setupCarouselListeners se llamará después de que se generen las tarjetas
 })
 
 

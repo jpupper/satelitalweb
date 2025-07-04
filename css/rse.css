@@ -32,19 +32,43 @@
   position: relative;
 }
 
+.rse-carousel-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
 .rse-carousel-track {
   display: flex;
   transition: transform 0.5s ease;
   width: 100%;
-  gap: 20px;
 }
 
 .rse-card {
-  flex: 0 0 calc(33.333% - 20px);
+  flex: 0 0 31%;
+  margin-right: 3.5%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   cursor: pointer;
+}
+
+.rse-card:last-child {
+  margin-right: 0;
+}
+
+@media (max-width: 768px) {
+  .rse-card {
+    flex: 0 0 48%;
+    margin-right: 4%;
+  }
+}
+
+@media (max-width: 480px) {
+  .rse-card {
+    flex: 0 0 100%;
+    margin-right: 0;
+  }
 }
 
 .rse-image-wrapper {
