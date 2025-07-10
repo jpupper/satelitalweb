@@ -17,7 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const currentLang = window.getCurrentLanguage();
 
   // Cargar noticias desde la API con el idioma actual
-  fetch(`/php/news/news-api.php?lang=${currentLang}`)
+  //fetch(`/php/news/news-api.php?lang=${currentLang}`)
+  fetch(`/satelital/php/news/news-api.php?lang=${currentLang}`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Error al cargar las noticias")

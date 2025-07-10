@@ -1,17 +1,17 @@
 <?php
 // Configuración de la base de datos para producción
-define('DB_HOST', 'localhost');
+/*define('DB_HOST', 'localhost');
 define('DB_USER', 'arsatelitalghm_ghm');
 define('DB_PASS', 'vivajeyder2025+');
-define('DB_NAME', 'arsatelitalghm_bd');
+define('DB_NAME', 'arsatelitalghm_bd');*/
 
 // Credenciales locales (comentadas)
-/*
+
 define('DB_HOST', 'localhost');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_NAME','ghmsatelital');
-*/
+
 
 // Credenciales alternativas (comentadas)
 /*

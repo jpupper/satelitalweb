@@ -123,7 +123,7 @@ const translations = {
         'main_expertos': 'Expertos en innovación y tecnología',
         'main_soluciones': 'Soluciones de conectividad',
         'main_monitoreo': 'y monitoreo en sitios remotos',
-        'main_titulo': 'Conectividad + Monitoreo integral + Servicios tecnológicos innovadores',
+        'main_titulo': 'Conectividad + Monitoreo integral + <br>Servicios tecnológicos innovadores',
         'main_descripcion': 'Desarrollamos soluciones adaptadas a sus necesidades en Argentina y países limítrofes. Ofrecemos internet satelital completamente autónoma, así como el diseño, fabricación y provisión de equipos para monitoreo ambiental, meteorológico y de seguridad.',
         
         // Textos de servicios
@@ -371,8 +371,8 @@ function applyLanguage(language) {
                     element.innerHTML = template;
                 }
             } else {
-                // Si es solo texto, podemos usar textContent
-                element.textContent = translations[language][key] || key;
+                // Usar innerHTML para permitir HTML en las traducciones
+                element.innerHTML = translations[language][key] || key;
             }
         }
     });

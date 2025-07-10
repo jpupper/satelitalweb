@@ -154,12 +154,12 @@ window.scrollUnlocked = false;
 
       if (sectionNumber === 3 && !isNavigatingBack) {
         const cards = nextElement.querySelectorAll(".card");
-        cards.forEach((card, index) => {
-          card.style.transform = "scale(0)";
-          setTimeout(() => {
-            card.style.transform = "scale(1)";
-          }, index * 100);
+        cards.forEach((card) => {
+          card.style.transform = "scale(1)";
         });
+        nextElement.classList.add("expanded");
+        hasExpanded = true;
+        unlockScrollCompletely();
       }
 
       setTimeout(() => {
@@ -230,21 +230,16 @@ window.scrollUnlocked = false;
 
     if (scrollAccumulator >= effectiveThreshold) {
       if (delta > 0) {
-        if (currentSection === 3 && !hasExpanded) {
+        if (currentSection === 3) {
           const cards = section3.querySelectorAll(".card");
           cards.forEach((card) => {
             card.style.transform = "scale(1)";
           });
-
-          setTimeout(() => {
-            section3.classList.add("expanded");
-            hasExpanded = true;
-
-            // Desbloquear el scroll completamente
-            setTimeout(unlockScrollCompletely, 300);
-            
-            isScrollEnabled = false;
-          }, 300);
+          section3.classList.add("expanded");
+          hasExpanded = true;
+          // Desbloquear el scroll completamente
+          unlockScrollCompletely();
+          isScrollEnabled = false;
         } else if (currentSection < 3) {
           isNavigatingBack = false;
           animateToSection(currentSection + 1);
