@@ -123,7 +123,7 @@ const translations = {
         'main_expertos': 'Expertos en innovación y tecnología',
         'main_soluciones': 'Soluciones de conectividad',
         'main_monitoreo': 'y monitoreo en sitios remotos',
-        'main_titulo': 'Conectividad + Monitoreo integral + <br>Servicios tecnológicos innovadores',
+        'main_titulo': 'Conectividad + Monitoreo integral + Servicios tecnológicos innovadores',
         'main_descripcion': 'Desarrollamos soluciones adaptadas a sus necesidades en Argentina y países limítrofes. Ofrecemos internet satelital completamente autónoma, así como el diseño, fabricación y provisión de equipos para monitoreo ambiental, meteorológico y de seguridad.',
         
         // Textos de servicios
@@ -148,7 +148,7 @@ const translations = {
         'motiva_vision_titulo': 'Visión',
         'motiva_vision_texto': 'Convertirse en la empresa de tecnologia preferida por profesionales que buscan transformar la sociedad. Ser reconocida como el aliado estratégico clave en la generación de valor, persiguiendo altos estándares de satisfacción para nuestros clientes, colaboradores y socios.',
         'motiva_valores_titulo': 'Valores',
-        'motiva_valores_texto': 'Creemos en soluciones que transformen vidas con compromiso, honestidad y dedicación. Priorizamos a nuestros clientes, cuidamos a las comunidades y fortalecemos nuestra organización para garantizar un impacto positivo en cada proyecto.',
+        'motiva_valores_texto': 'Creemos en soluciones  que transformen <br> vidas con compromiso , honestidad y dedicación. Priorizamos a nuestros clientes, cuidamos a las comunidades y fortalecemos nuestra organización para garantizar un impacto positivo en cada proyecto.',
         
         // Textos de actualidad
         'actualidad_titulo': 'Actualidad',
@@ -303,10 +303,9 @@ const translations = {
         'motiva_titulo': 'What motivates us?',
         'motiva_mision_titulo': 'Mission',
         'motiva_mision_texto': 'We offer innovative technological solutions that connect and empower companies and communities, even in the most challenging environments, with a firm commitment to quality, the customer, and the environment.',
-        'motiva_vision_titulo': 'Vision',
-        'motiva_vision_texto': 'To become the technology company preferred by professionals seeking to transform society. To be recognized as a key strategic ally in generating value, pursuing high standards of satisfaction for our clients, collaborators, and partners.',
-        'motiva_valores_titulo': 'Values',
         'motiva_valores_texto': 'We believe in solutions that transform lives with commitment, honesty, and dedication. We prioritize our clients, care for communities, and strengthen our organization to ensure a positive impact on each project.',
+        'motiva_valores_titulo': 'Values',
+        'motiva_valores_texto': 'Creemos en soluciones que transformen <br> vidas con compromiso, honestidad y dedicación. Priorizamos a nuestros clientes, cuidamos a las comunidades y fortalecemos nuestra organización para garantizar un impacto positivo en cada proyecto.',
         
         // News section texts
         'actualidad_titulo': 'News',
@@ -362,17 +361,13 @@ function applyLanguage(language) {
     elements.forEach(element => {
         const key = element.getAttribute('data-i18n');
         if (key) {
-            // Preservar los elementos HTML dentro del contenido (como <br> y <span>)
-            // Usamos una técnica para guardar el HTML interno
-            if (element.innerHTML.includes('<')) {
-                // Si tiene HTML interno, necesitamos ser cuidadosos con el reemplazo
-                const template = translations[language][key];
-                if (template) {
-                    element.innerHTML = template;
-                }
+            const translation = translations[language][key];
+            if (translation) {
+                // Siempre usamos innerHTML para permitir contenido HTML
+                element.innerHTML = translation;
             } else {
-                // Usar innerHTML para permitir HTML en las traducciones
-                element.innerHTML = translations[language][key] || key;
+                // Si no hay traducción, mantenemos el contenido original
+                console.warn(`No se encontró traducción para la clave: ${key}`);
             }
         }
     });
