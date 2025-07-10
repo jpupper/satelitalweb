@@ -123,7 +123,7 @@ const translations = {
         'main_expertos': 'Expertos en innovación y tecnología',
         'main_soluciones': 'Soluciones de conectividad',
         'main_monitoreo': 'y monitoreo en sitios remotos',
-        'main_titulo': 'Conectividad + Monitoreo integral + Servicios tecnológicos innovadores',
+        'main_titulo': 'Conectividad + Monitoreo integral + <br>Servicios tecnológicos innovadores',
         'main_descripcion': 'Desarrollamos soluciones adaptadas a sus necesidades en Argentina y países limítrofes. Ofrecemos internet satelital completamente autónoma, así como el diseño, fabricación y provisión de equipos para monitoreo ambiental, meteorológico y de seguridad.',
         
         // Textos de servicios
@@ -303,9 +303,10 @@ const translations = {
         'motiva_titulo': 'What motivates us?',
         'motiva_mision_titulo': 'Mission',
         'motiva_mision_texto': 'We offer innovative technological solutions that connect and empower companies and communities, even in the most challenging environments, with a firm commitment to quality, the customer, and the environment.',
-        'motiva_valores_texto': 'We believe in solutions that transform lives with commitment, honesty, and dedication. We prioritize our clients, care for communities, and strengthen our organization to ensure a positive impact on each project.',
+        'motiva_vision_titulo': 'Vision',
+        'motiva_vision_texto': 'To become the technology company preferred by professionals seeking to transform society. To be recognized as a key strategic ally in generating value, pursuing high standards of satisfaction for our clients, collaborators, and partners.',
         'motiva_valores_titulo': 'Values',
-        'motiva_valores_texto': 'Creemos en soluciones que transformen <br> vidas con compromiso, honestidad y dedicación. Priorizamos a nuestros clientes, cuidamos a las comunidades y fortalecemos nuestra organización para garantizar un impacto positivo en cada proyecto.',
+        'motiva_valores_texto': 'We believe in solutions that transform lives with commitment, honesty, and dedication. We prioritize our clients, care for communities, and strengthen our organization to ensure a positive impact on each project.',
         
         // News section texts
         'actualidad_titulo': 'News',

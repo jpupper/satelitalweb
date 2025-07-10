@@ -62,7 +62,7 @@
 }
 
 .news-card {
-  flex: 0 0 calc(25% - 20px);
+  flex: 0 0 calc(33.333% - 20px);
   margin: 0 10px;
   border-radius: 8px;
   overflow: hidden;

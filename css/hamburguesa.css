@@ -59,6 +59,7 @@
   
   .mobile-logo {
     height: 20px;
+    margin-right: auto; /* Push everything else to the right */
   }
   
   .mobile-menu-close {
