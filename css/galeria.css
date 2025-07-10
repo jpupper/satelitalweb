@@ -110,10 +110,13 @@
   font-family: "Roboto";
   font-weight: bold;
   margin: 0;
+  line-height: 1.1;
 }
 
 .news-card-title-highlight {
   color: #b4cd00;
+  margin-top: 5px;
+  font-size: 28px;
 }
 
 .news-card-description {

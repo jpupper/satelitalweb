@@ -67,7 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
         <div class="news-card-content">
           <div class="news-card-category">▸ ${item.category}</div>
-          <h3 class="news-card-title">${item.titleBlack}<span class="news-card-title-highlight">${item.titleGreen ? " " + item.titleGreen : ""}</span></h3>
+          <h3 class="news-card-title">${item.titleBlack}</h3>
+          ${item.titleGreen ? `<h3 class="news-card-title news-card-title-highlight">${item.titleGreen}</h3>` : ''}
           <p class="news-card-description">${item.description}</p>
           <div class="news-card-date">Publicado: ${item.formattedDate}</div>
           <a href="#" class="news-button">${getCurrentLanguage() === 'es' ? 'Ver noticia' : 'View news'} &gt;</a>
